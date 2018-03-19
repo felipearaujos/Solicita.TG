@@ -1,0 +1,198 @@
+﻿<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-1.8.2.min.js"></script>
+<br />
+<!-- page start-->
+<div class="tab-pane" id="chartjs">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="content-panel">
+                <h4><i class="fa fa-angle-right"></i> Quantidade de requerimentos neste mês</h4>
+                <div class="panel-body text-center">
+                    <canvas id="chartTotalMensal" height="80" width="200"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="mtbox">
+                <div class="col-md-6">
+                    <span class="li_heart">
+                        <h3 style="color:#A62F00"><span class="MediaConclusao"></span> horas</h3>
+                        <p>Essa é a média geral de tempo para conclusão de um requerimento</p>
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <span class="li_cloud"></span>
+                    <h3 style="color:#A62F00"><span class="QuantidadeEmAndamento"></span> Pendentes</h3>
+                    <p>Você ainda possui <span class="QuantidadeEmAndamento"></span> requerimentos em andamento</p>
+                </div>
+@*                <div class="col-md-4">
+                    <span class="li_stack"></span>
+                    <h3 style="color:#A62F00">23 Urgentes</h3>
+                    <p>Você possui 23 requerimentos que necessitam ser entregados hoje</p>
+                </div>*@
+            </div><!-- /row mt -->	
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="content-panel">
+                <h4><i class="fa fa-angle-right"></i> Volumetria ultimos 6 Meses</h4>
+               
+                <div class="panel-body text-center">                    
+                    <canvas id="chartQtdReqPorMes" height="50"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+
+
+    $(document).ready(function (e) {
+        
+    });
+
+    GetResumoAtual();
+    criarVolumetriaMensal();
+    GerarVolumetriaUltimosDozeMeses();
+
+
+    function GetResumoAtual()
+    {
+        $.ajax({
+            type: "POST",
+            url: '/Dashboard/ResumoAtual',
+            success: function (data) {
+                $(".QuantidadeEmAndamento").text(data.QuantidadeEmAndamento);
+                $(".MediaConclusao").text(data.MediaConclusao);
+                
+            },
+            error: function (xhr, status, error) {
+                
+            }
+        });
+            
+    }
+
+
+
+    function criarVolumetriaMensal() {
+        
+        $.ajax(
+            {
+                type: 'POST',
+                async: false,
+                url: '/Dashboard/GerarVolumetriaMensal',
+                success: function (data) {
+
+                    var labels = [];
+
+                    for (var i = 0; i < data.VolumetriaPorMes.length; i++)
+                    {
+                        labels.push(data.VolumetriaPorMes[i].Name);
+                    }
+
+                    var values = [];
+
+                    for (var i = 0; i < data.VolumetriaPorMes.length; i++) {
+                        values.push(data.VolumetriaPorMes[i].Value.toString());
+                    }
+
+
+                    var ctxPie = document.getElementById("chartTotalMensal");
+                    var myPieChart = new Chart(ctxPie, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [
+                                {
+                                    data: values,
+                                    backgroundColor: [
+                                        "rgba(215, 35, 44, 0.9)",
+                                        "rgba(26, 45, 179, 0.9)",
+                                        "rgba(146, 154, 39, 0.9)",
+                                        "rgba(212, 140, 39, 0.9)",
+                                        "rgba(0, 25, 47, 0.9)"
+                                    ]
+                                }]
+                        },
+                        options: {
+                            animation: {
+                                animateScale: true,
+                                animateRotate: true,
+                                animateScale: true
+                            }
+                        }
+                    });
+                },
+                error: function (data) {
+                    toastr.options.closeMethod = 'fadeOut';
+                    toastr.options.closeEasing = 'swing';
+                    toastr.options.closeButton = true;
+                    toastr.options.preventDuplicates = true;
+                    toastr.error("Erro ao gerar gráfico de volumetria mensal", "Gráfico não gerado!");
+                }
+            });
+    }
+    
+    function GerarVolumetriaUltimosDozeMeses() {
+
+        
+        var Cores = ['rgba(215, 35, 44, 0.9)', 'rgba(26, 45, 179, 0.9)', 'rgba(146, 154, 39, 0.9)', 'rgba(212, 140, 39, 0.9)', 'rgba(0, 25, 47, 0.9)']
+        var currentColor = 0;
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: '/Dashboard/GerarVolumetriaAnual',
+            success: function (data) {                
+                var labels = data.MesesNoPeriodo;
+
+                var MyDataSets = [];
+
+                for (var i = 0; i < data.Chart.length; i++) {
+
+                    var CurrentLabel = data.Chart[i].Tipo;
+                    var ColorsArray = [];
+
+                    for (var cr = 0; cr < data.Chart[i].value.length; cr++) {
+                        ColorsArray.push(Cores[currentColor]);                        
+                    }
+                    currentColor++;
+
+                    var valuesDataSet = data.Chart[i].value;
+
+                    var currentDataSet = {
+                        data: valuesDataSet,
+                        label: CurrentLabel,
+                        backgroundColor: ColorsArray                                                   
+                    };
+
+                    MyDataSets.push(currentDataSet);
+
+                }
+
+                var ctx = document.getElementById("chartQtdReqPorMes");
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: MyDataSets
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+</script>

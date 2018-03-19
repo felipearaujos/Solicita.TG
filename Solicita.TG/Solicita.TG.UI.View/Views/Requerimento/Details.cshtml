@@ -1,0 +1,305 @@
+﻿@model Solicita.TG.UI.View.ReqService.RequerimentoCompletoModel
+
+<div class="row">
+    <div class="padding0"></div>
+    <div class="col-md-6">
+        <h1> REQUERIMENTO NÚMERO: 1 </h1>
+    </div>
+    <div class="col-md-6">
+        <div class="row btnCreateReq" id="opener">
+            ATUALIZAR STATUS
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div id="dialog" title="ATUALIZAR STATUS">
+        <div class="container">
+            <div class="padding0"></div>
+            <div class="row">
+                <div class="col-md-12 lblReqMed">
+                    RA
+                    <select id="txtResponsavelNovoStatus" class="editInput">
+                        <option value="1">ALUNO</option>
+                        <option value="2">PROFESSOR</option>
+                        <option value="3">DIRETOR ACADÊMICO</option>
+                        <option value="4" selected>FUNCIONÁRIO ACADÊMICO</option>
+                        <option value="5" selected>CORDENADOR</option>
+                    </select>
+                </div>
+                <div class="col-md-12 lblReqMed">
+                    MOTIVO
+                    <textarea  class="editInput" id="txtObsNovoStatus" />
+                </div>
+                <div class="col-md-6">
+                    <div class="btnEdit" id="confirmTransfer">
+                        CONFIRMAR
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="btnEdit" id="closer">
+                        CANCELAR
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="hdnId" value="@Model.Id" />
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6 lblReqMed">
+                <label class="editInputView" id="txtNome"> RA </label>
+                  @Model.RA
+            </div>
+            <div class="col-md-6 lblReqMed">
+                <label class="editInputView" id="txtNome"> RG </label>
+                 @Model.RG
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 lblReqMed">
+                <label class="editInputView" id="txtNome"> NOME </label>
+                 @Model.Nome 
+            </div>
+            <div class="col-md-6 lblReqMed">
+                <label class="editInputView" id="txtNome"> SOBRENOME </label>
+                 @Model.Sobrenome
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 lblReqMed">
+                <label class="editInputView" id="txtNome"> PERÍODO </label>
+                  @Model.Período
+            </div>
+            <div class="col-md-6 lblReqMed">
+                <label class="editInputView" id="txtNome"> TURNO </label>
+                  @Model.Turno
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 lblReqMed">
+                <label class="editInputView" id="txtNome"> CURSO SELECIONADO </label>
+                  @Model.CursoSelecionado
+            </div>
+            <div class="col-md-6 lblReqMed">
+                <label class="editInputView" id="txtNome"> MATÉRIA SELECIONADA </label>
+                  @Model.MateriaSelecionada
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 lblReqMed">
+                <label class="editInputView" id="txtNome"> TIPO DE REQUERIMENTO </label>
+                  @Model.TipoDeRequerimento
+            </div>
+            <div class="col-md-6 lblReqMed">
+                <label class="editInputView" id="txtNome"> STATUS ATUAL </label>
+                  @Model.StatusAtual.StatusName
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 lblReqMed">
+                <label class="editInputView" id="txtNome"> RESPONSÁVEL ATUAL </label>
+                 @Model.StatusAtual.Responsável
+            </div>
+            <div class="col-md-6 lblReqMed">
+                <label class="editInputView" id="txtNome"> OBSERVAÇÕES </label>
+                  @Model.StatusAtual.Obs
+            </div>
+            <div class="col-md-12 tableLateralListar">
+                <br />
+                <h2 class="lblReqBig">HISTÓRICO DE STATUS</h2>
+                <table id="tblHistorico" class="table-hover">
+                    <thead>
+                        <tr>
+                            <th>STATUS</th>
+                            <th>DATA DE ENTRADA</th>
+                            <th>DATA DE SAÍDA</th>
+                            <th>RESPONSÁVEL</th>
+                            <th>MOTIVO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var umStatus in Model.HistoricoDeStatus)
+                        {
+                            <tr>
+                                <td>
+                                    @umStatus.StatusName
+                                </td>
+                                <td>
+                                    @umStatus.DataDeEntradaNesseStatus
+                                </td>
+                                <td>
+                                    @umStatus.DataDeSaidaNesseStatus
+                                </td>
+                                <td>
+                                    @umStatus.Responsável
+                                </td>
+                                <td>
+                                    @umStatus.Obs
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+        $("#dialog").dialog({
+            height: 300,
+            width: 550,
+            resizable: false,
+            dialogClass: 'success-dialog',
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
+            },
+            autoOpen: false,
+            show: {
+                effect: "fadeIn",
+                duration: 500
+            },
+            hide: {
+                effect: "fadeOut",
+                duration: 500
+            }
+        });
+
+        $("#opener").on("click", function () {
+            $("#dialog").dialog("open");
+        });
+
+        $("#closer").on("click", function () {
+            $("#dialog").dialog("close");
+        });
+    });
+
+    var OpcaoSelecionada = null;
+    
+    $("#confirmTransfer").click(function () {
+
+        if ($("#txtResponsavelNovoStatus").val() === null)
+            alert("É necessário selecionar um responsável.");
+
+        if ($("#txtObsNovoStatus").text() === null)
+            alert("É necessário informar uma Observação para a mudança de status.");
+
+        var request = {
+            requerimento: '00000000-0000-0000-0000-000000000000', observacao: $("#txtObsNovoStatus").val(),
+            responsavel: $("#txtResponsavelNovoStatus").val()
+        };
+
+        $.ajax(
+           {
+               type: 'POST',
+               url: '/Requerimento/TransferirResponsabilidade',
+               data: request,
+               success: function (data) {
+                   alert("STATUS Atualizado com sucesso");
+
+                   var id = $("#hdnId").val();
+
+                   $.ajax(
+                   {
+                       type: 'GET',
+                       url: '/Requerimento/Details',
+                       data: id,
+                       dataType: 'html',
+                       cache: false,
+                       async: true,
+                       success: function (data) {
+                           $('#dinamicPage').html(data);
+                       }
+                   });
+               }
+           });
+
+    });
+
+    $("#btnSalvar").click(function () {
+
+        if (OpcaoSelecionada === null)
+            alert("É necessário selecionar um tipo de requerimento.");
+
+        var request = { IdAluno: $("#IdAlunoHidden").val(), Motivo: $("#txtMotivo").val(), Tipo: OpcaoSelecionada };
+        
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/Requerimento/CriarRequerimento',
+                data: request,
+                success: function (data) {
+                    alert("Requerimento criado com sucesso");
+                }
+        });
+    });
+
+    $(".btnCreateReq").click(function () {
+        var url = '/Requerimento/' + $(this).attr('id');
+        OpcaoSelecionada = $(this).attr('data-id');
+        $.ajax(
+        {
+            type: 'GET',
+            url: url,
+            dataType: 'html',
+            cache: false,
+            async: true,
+            success: function (data) {
+                $('#specificCreate').html(data);
+            }
+        });
+    });
+
+
+    $('#txtRA').keypress(function (e) {
+        if (e.which == 13) {
+            $.ajax(
+            {
+                type: 'GET',
+                url: '/Requerimento/ListarAlunos',
+                data: { RA: $('#txtRA').val() },
+                success: function (data) {
+
+                    if (data.Nome === '') {
+                        alert('Aluno não encontrado');
+                    }
+                    else{
+                        $("#txtNome").val(data.Nome);
+                        $("#IdAlunoHidden").val(data.Id);
+                        $("#txtSobrenome").val(data.Sobrenome);
+                        $("#txtRG").val(data.RG);
+                    }
+                }
+            });
+        }
+    });
+
+    $('#txtRA').kety('input', function () {
+        $.ajax(
+        {
+            type: 'POST',
+            url: '/Requerimento/ListarAlunos',
+            success: function (data) {
+                $( "#txtRA" ).autocomplete({
+                    minLength: 3,
+                    source: data,
+                    select: function (event, ui) {
+                        $("#txtRA").val(ui.item.label);
+                        $("#RAHidden").val(ui.item.value);
+                        $("#txtNomeBind").html(ui.item.desc);
+                        return false;
+                    }
+                }).autocomplete("instance")._renderItem = function (ul, item) {
+                    return $("<li>")
+                      .append("<div>" + item.desc + "</div>")
+                      .appendTo(ul);
+                };;
+            }
+        });
+    });
+
+</script>

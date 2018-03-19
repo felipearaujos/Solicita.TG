@@ -1,0 +1,72 @@
+﻿
+qwewqe
+    <div class="row">
+        <div class="col-md-9">
+            <h2 class="titleList"><i class="fa fa-graduation-cap" aria-hidden="true"></i>  CARREGAR EXCEL</h2>
+        </div>
+
+        <div class="col-md-3">
+                   <div class="btnEdit" href="/HOME"> <i class="fa fa-share-square" aria-hidden="true"></i> VOLTAR </div>  
+        </div>
+    </div>
+    <div class="row">
+       
+         
+        <div class="col-md-6"> 
+            <input type="file" name="btnSelectImage[]" name="img" id="btnSelectImage" multiple class="btnEdit" >   
+        </div>
+
+        <div class="col-md-6"> 
+            <input id="submit" type="submit" value="Processar"  class="btnEdit" />    
+        </div>
+ @*       <select>
+            <option>Aluno</option>
+            <option>Professor</option>
+        </select>*@  
+    </div>
+
+
+
+
+
+  
+
+
+@section scripts {
+<script>
+
+
+    $("#submit").click(function () {
+        var data = new FormData();
+
+        var files = $("#btnSelectImage").get(0).files;
+
+
+        for (i = 0; i < files.length; i++) {
+            data.append('File' + i, files[i]);
+        }
+
+        var ajaxRequest = $.ajax({
+            type: "POST",
+            url: "/ProcessadorDeExcel/AdicionarExcel",
+            contentType: false,
+            processData: false,
+            data: data,
+            success: (function (e) {
+                   
+                   
+                $('#btnSelectImage').val('');
+
+                window.location.href = '/Aluno'
+            }),
+
+            error: function (xhr, status, error) {
+                   
+            }
+        });
+       
+    });
+        
+    
+</script>
+    }

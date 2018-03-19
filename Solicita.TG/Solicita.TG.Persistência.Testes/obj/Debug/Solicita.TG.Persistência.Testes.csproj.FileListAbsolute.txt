@@ -1,0 +1,14 @@
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\bin\Debug\Solicita.TG.Persistência.Testes.dll.config
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\bin\Debug\Solicita.TG.Persistência.Testes.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\bin\Debug\Solicita.TG.Persistência.Testes.pdb
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\bin\Debug\MySql.Data.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\bin\Debug\SharpTestsEx.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\bin\Debug\Solicita.TG.Domínio.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\bin\Debug\Solicita.TG.Persistência.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\bin\Debug\Solicita.TG.Utils.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\bin\Debug\Solicita.TG.Domínio.pdb
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\bin\Debug\Solicita.TG.Persistência.pdb
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\bin\Debug\Solicita.TG.Utils.pdb
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\obj\Debug\Solicita.TG.Persistência.Testes.csprojResolveAssemblyReference.cache
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\obj\Debug\Solicita.TG.Persistência.Testes.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Persistência.Testes\obj\Debug\Solicita.TG.Persistência.Testes.pdb

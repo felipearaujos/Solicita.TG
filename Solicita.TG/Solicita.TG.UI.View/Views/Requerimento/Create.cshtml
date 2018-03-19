@@ -1,0 +1,90 @@
+﻿<div class="row">
+    <div class="col-md-8 lblReqBig">
+        INFORMAÇÕES DO ALUNO
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-8 lblReq">
+                RA
+                <input class="editInput span9" id="txtRA"  />
+                <input type="hidden" id="RAHidden" />
+                <input type="hidden" id="IdAlunoHidden" />
+            </div>
+            <div class="col-md-4 lblReq">
+                RG
+                <input class="editInput" id="txtRG"  />
+            </div>
+            <div class="padding0"></div>
+            <div class="col-md-5 lblReq">
+                Nome
+                <input class="editInput" id="txtNome"  />
+            </div>
+            <div class="col-md-7 lblReq">
+                Sobrenome
+                <input class="editInput" id="txtSobrenome"  />
+            </div>
+            <div class="padding0"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="specificCreate">
+            </div>
+        </div>
+        <div class="row">
+    
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="btnEdit" id="btnSalvar">SALVAR</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="btnEdit">CANCELAR</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row btnCreateReq" id="TrancamentoDeCursoIndex" data-id="1">
+            Trancamento de Curso
+        </div>
+        <div class="row btnCreateReq" id="TrancamentoDeMateriaIndex" data-id="2">
+             Trancamento de Matéria
+        </div>
+        <div class="row btnCreateReq" id="PasseEscolarIndex" data-id="3">
+             Solicitação de Passe Escolar
+        </div>
+        <div class="row btnCreateReq" id="ReaproveitamentoDeMateriasIndex" data-id="4">
+            REAPROVEITAMENTO DE MATÉRIAS
+        </div>
+        <div class="row btnCreateReq" id="DeclaracaoDeMatriculaIndex" data-id="5">
+            Declaração de Matrícula
+        </div>
+        <div class="row btnCreateReq" id="DeclaracaoDeProvaIndex" data-id="6">
+            DECLARAÇÂO DE PROVA
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+    $("#btnSalvar").click(function () {
+        
+        var request = { IdAluno: $("#IdAlunoHidden").val(), Motivo: $("#txtMotivo").val(), Tipo: 1 };
+        
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/Requerimento/CriarRequerimento',
+                data: request,
+                success: function (data) {
+                    alert("Requerimento criado com sucesso");
+                }
+        });
+    });
+    
+</script>

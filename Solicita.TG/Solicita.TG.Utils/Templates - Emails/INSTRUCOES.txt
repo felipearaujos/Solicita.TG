@@ -1,0 +1,7 @@
+﻿PARA UTILIZAR O ENVIO DOS EMAILS É NECESSÁRIO:
+
+1. CRIAR UMA PASTA EM C:\SolicitaFiles
+2. CRIAR UMA PASTA EM C:\SolicitaFiles\XML - Mails
+3. COPIAR OS TEMPLATES DE EMAIL QUE ESTÃO EM ~\Solicita - TG\Solicita.TG\Solicita.TG.Utils\Templates - Emails PARA A
+	PASTA C:\Users\Jonathan\Source\Workspaces\Solicita - TG\Solicita.TG\Solicita.TG.Utils\Templates - Emails
+4. EXECUTAR O PROJETO SOLICITA.TG.SENDER E DEIXÁ-LO RODANDO

@@ -1,0 +1,72 @@
+﻿@Model Solicita.TG.UI.AlunoService.AlunoModel
+
+<label id=="hiddenId"></label>
+
+<div>
+    <div>
+        <label>Nome</label>
+        <input id="txtNome" />
+    </div>
+    <div>
+        <label>Sobrenome</label>
+        <input id="txtSobrenome" />
+    </div>
+    <div>
+        <label>RG</label>
+        <input id="txtRG" />
+    </div>
+    <div>
+        <label>RA</label>
+        <input id="txtRA" />
+    </div>
+    <div>
+        <select id="cmbPeriodo">
+            <option value="1">Manhã</option>
+            <option value="2">Tarde</option>
+            <option value="3">Noite</option>
+        </select>
+    </div>
+    <div>
+        <label>Turno</label>
+        <select id="cmbTurno">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="1">4</option>
+            <option value="2">5</option>
+            <option value="3">6</option>
+        </select>
+    </div>
+    <button id="btnSalvar">Salvar</button>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        var id = $("#hiddenId").val();
+        if (id != "00000000-0000-0000-0000-000000000000") {
+            $("#txtNome").val();
+            $("#txtSobrenome").val(@Model.Sobrenome);
+            $("#txtRG").val(@Model.RG);
+            $("#txtRA").val(@Model.Matricula.RA);
+            $("#cmbPeriodo").val(@Model.Matricula.Periodo);
+            $("#cmbTurno").val(@Model.Matricula.Turno);
+        }
+    });
+
+    $("#btnSalvar").click(function (e) {
+        $.post("/Aluno/CadastrarAluno",
+            {
+                Nome: $("#txtNome").val(),
+                Sobrenome: $("#txtSobrenome").val(),
+                RG: $("#txtRG").val(),
+                RA: $("#txtRA").val(),
+                Periodo: $("#cmbPeriodo").val(),
+                Turno: $("#cmbTurno").val()
+            },
+        function (data, status) {
+            alert('Salvo com sucesso.');
+            window.location.href = "/Aluno";
+        });
+    })
+</script>

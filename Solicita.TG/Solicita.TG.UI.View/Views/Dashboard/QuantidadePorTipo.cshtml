@@ -1,0 +1,245 @@
+﻿<script type="text/javascript" src="~/Scripts/jquery-1.8.2.min.js"></script>
+<br />
+<!-- page start-->
+<div class="tab-pane" id="chartjs">
+
+    <div class="row">        
+        <div class="form-group col-md-6">
+            <label><b>Filtrar por Status:</b></label><br />
+            <div id="CheckBoxes">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <br />
+        <div class="col-md-4 form-group">
+            <label>Aluno</label><br />
+            <input id="txtAlunoInformado" class="form-control">
+            <input type="hidden" id="txtAlunoInformadoId" value="00000000-0000-0000-0000-000000000000">
+
+            @*<select class="form-control" id="cmbAluno"></select>*@
+        </div>
+        <div class="form-group col-md-2">   
+            <label>Data Inicial:</label>
+            <input id="txtDataInicial" class="form-control">
+            
+
+            <label>Data Final:</label>
+            <input id="txtDataFinal" class="form-control">
+        </div>
+
+        <div class="form-group col-md-2">
+            <label><b>Agrupar por:</b></label><br />
+            <input type="radio" name="agruparPorTipo" value="false"> Status<br>
+            <input type="radio" name="agruparPorTipo" value="true" checked> Tipo  
+        </div>
+
+        <div class="form-group col-md-4">
+            <label><b>Disciplina:</b></label><br />
+            <input id="txtDisciplinaInformada" class="form-control">
+            <input type="hidden" id="txtDisciplinaInformadaId" value="00000000-0000-0000-0000-000000000000">
+        </div>
+    </div>
+
+    <div class="row">        
+        <div class="form-group col-md-2">
+            <button type="button" class="btn btn-danger pull-left" id="gerar">GERAR</button>            
+        </div>
+        <div class="form-group col-md-2">
+            
+            <button type="button" class="btn btn-danger pull-left" id="limpar">LIMPAR FILTROS</button>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div>                
+                <div class="panel-body text-center" id="QuantidadePorTipoChartPage">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br />
+
+</div>
+
+<script>
+    $(document).ready(function (e) {
+        ListarDisciplinas();
+        PopularCheckBoxesDeStatus();
+        ListarAlunos();
+    });
+
+
+    function PopularCheckBoxesDeStatus()
+    {
+        $.getJSON('/Requerimento/ListarTipoDeStatusJson', function (result) {
+            for (var i = 0 ; i < result.length; i++) {
+
+                var newLine = ' <input type="checkbox" class="ChartFilter" name="tipo" value="' + result[i].Id + '"> ' + result[i].value + ' ' 
+
+                $("#CheckBoxes").append(newLine)
+            }
+
+        });
+    }
+
+    $("#limpar").click(function () {        
+        $("#txtAlunoInformado").val("");
+        $("#txtAlunoInformadoId").val("00000000-0000-0000-0000-000000000000");
+        $("#txtDisciplinaInformadaId").val("00000000-0000-0000-0000-000000000000");
+        $("#txtDisciplinaInformada").val("");        
+        $("#txtDataFinal").val("");
+        $("#txtDataInicial").val("");        
+    });
+
+    $("#gerar").click(function () {
+
+        var myArray = [];
+        $("input:checkbox[name=tipo]:checked").each(function () {
+            myArray.push($(this).val());
+        });
+
+        var AgruparPorTipo = $('input[name=agruparPorTipo]:checked').val();
+
+        jQuery.ajaxSettings.traditional = true;
+        $.ajax({
+            type: "POST",
+            url: '/Dashboard/QuantidadePorTipoChart',
+            data: { status: myArray, aluno: $("#txtAlunoInformadoId").val(), agruparPorTipo: AgruparPorTipo, disciplina: $("#txtDisciplinaInformadaId").val(), dataInicial: $("#txtDataInicial").val(), dataFinal: $("#txtDataFinal").val() },
+            success: function (data) {
+                $('#QuantidadePorTipoChartPage').html(data);
+            }
+        });
+    });
+
+    $("#gerar").click();
+
+    function GerarGrafico() {
+
+
+        $.ajax(
+            {
+                type: 'POST',
+                async: false,
+                url: '/Dashboard/GerarVolumetriaMensal',
+                success: function (data) {
+
+                    var labels = [];
+
+                    for (var i = 0; i < data.VolumetriaPorMes.length; i++) {
+                        labels.push(data.VolumetriaPorMes[i].Name);
+                    }
+
+                    var values = [];
+
+                    for (var i = 0; i < data.VolumetriaPorMes.length; i++) {
+                        values.push(data.VolumetriaPorMes[i].Value.toString());
+                    }
+
+                    var ctxPie = document.getElementById("chartQuantidades").getContext("2d");
+                    var myPieChart = new Chart(ctxPie, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [
+                                {
+                                    data: values,
+                                    backgroundColor: [
+                                        "rgba(215, 35, 44, 0.9)",
+                                        "rgba(26, 45, 179, 0.9)",
+                                        "rgba(146, 154, 39, 0.9)",
+                                        "rgba(212, 140, 39, 0.9)",
+                                        "rgba(0, 25, 47, 0.9)"
+                                    ]
+                                }]
+                        },
+                        options: {
+                            animation: {
+                                animateScale: true,
+                                animateRotate: true,
+                                animateScale: true
+                            },
+                            legend: {
+                                display: false
+                            }
+
+                        }
+                    });
+                },
+                error: function (data) {
+                    toastr.options.closeMethod = 'fadeOut';
+                    toastr.options.closeEasing = 'swing';
+                    toastr.options.closeButton = true;
+                    toastr.options.preventDuplicates = true;
+                    toastr.error("Erro ao gerar gráfico de volumetria mensal", "Gráfico não gerado!");
+                }
+            });
+    }
+
+    function ListarDisciplinas() {
+        $.ajax({
+            type: 'POST',
+            url: '/Disciplina/ListarPorNome',
+            data: { term: $("#txtDisciplinaInformada").val() },
+            success: function (data) {
+                debugger;
+                var input = document.getElementById("txtDisciplinaInformada");
+
+                // Show label but insert value into the input:
+                new Awesomplete(input, {
+                    list: data
+                });
+
+                Awesomplete.$.bind(input, {
+                    "awesomplete-selectcomplete": function (evt) {
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/Disciplina/GetIdPorNome',
+                            data: { nome: $("#txtDisciplinaInformada").val() },
+                            success: function (data) {
+                                $("#txtDisciplinaInformadaId").val(data);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    function ListarAlunos() {
+        $.ajax({
+            type: 'POST',
+            url: '/Aluno/ListarPorNome',
+            data: { term: $("#txtAlunoInformado").val() },
+            success: function (data) {
+                debugger;
+                var input = document.getElementById("txtAlunoInformado");
+
+                // Show label but insert value into the input:
+                new Awesomplete(input, {
+                    list: data
+                });
+
+                Awesomplete.$.bind(input, {
+                    "awesomplete-selectcomplete": function (evt) {
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/Aluno/GetIdPorNome',
+                            data: { nome: $("#txtAlunoInformado").val() },
+                            success: function (data) {
+                                $("#txtAlunoInformadoId").val(data);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+</script>

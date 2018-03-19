@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AcessoService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Acesso.Modelos" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAcessoService_CriarAcesso_InputMessage">
+    <wsdl:part name="parameters" element="tns:CriarAcesso" />
+  </wsdl:message>
+  <wsdl:message name="IAcessoService_CriarAcesso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CriarAcessoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAcessoService_CriarAcesso_MyServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os" name="detail" element="q1:MyServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IAcessoService_ListarTodosAcessos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTodosAcessos" />
+  </wsdl:message>
+  <wsdl:message name="IAcessoService_ListarTodosAcessos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTodosAcessosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAcessoService_Get_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get" />
+  </wsdl:message>
+  <wsdl:message name="IAcessoService_Get_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAcessoService_AlterarSenha_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarSenha" />
+  </wsdl:message>
+  <wsdl:message name="IAcessoService_AlterarSenha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarSenhaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAcessoService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IAcessoService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAcessoService">
+    <wsdl:operation name="CriarAcesso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAcessoService/CriarAcesso" message="tns:IAcessoService_CriarAcesso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAcessoService/CriarAcessoResponse" message="tns:IAcessoService_CriarAcesso_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAcessoService/CriarAcessoMyServiceFaultFault" name="MyServiceFaultFault" message="tns:IAcessoService_CriarAcesso_MyServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTodosAcessos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAcessoService/ListarTodosAcessos" message="tns:IAcessoService_ListarTodosAcessos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAcessoService/ListarTodosAcessosResponse" message="tns:IAcessoService_ListarTodosAcessos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAcessoService/Get" message="tns:IAcessoService_Get_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAcessoService/GetResponse" message="tns:IAcessoService_Get_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarSenha">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAcessoService/AlterarSenha" message="tns:IAcessoService_AlterarSenha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAcessoService/AlterarSenhaResponse" message="tns:IAcessoService_AlterarSenha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAcessoService/Login" message="tns:IAcessoService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAcessoService/LoginResponse" message="tns:IAcessoService_Login_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAcessoService" type="tns:IAcessoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CriarAcesso">
+      <soap:operation soapAction="http://tempuri.org/IAcessoService/CriarAcesso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MyServiceFaultFault">
+        <soap:fault use="literal" name="MyServiceFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTodosAcessos">
+      <soap:operation soapAction="http://tempuri.org/IAcessoService/ListarTodosAcessos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap:operation soapAction="http://tempuri.org/IAcessoService/Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarSenha">
+      <soap:operation soapAction="http://tempuri.org/IAcessoService/AlterarSenha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IAcessoService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AcessoService">
+    <wsdl:port name="BasicHttpBinding_IAcessoService" binding="tns:BasicHttpBinding_IAcessoService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Acesso/AcessoService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

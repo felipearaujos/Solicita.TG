@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" />
+  <xs:element name="Concluir">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q1:guid" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="idResponsavel" type="q2:guid" />
+        <xs:element minOccurs="0" name="tipoResponsavel" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConcluirResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarMotivos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarMotivosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" minOccurs="0" name="ListarMotivosResult" nillable="true" type="q3:ArrayOfMotivoModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Indeferir">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q4:guid" />
+        <xs:element minOccurs="0" name="motivo" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="idResponsavel" type="q5:guid" />
+        <xs:element minOccurs="0" name="tipoResponsavel" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IndeferirResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Cancelar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q6:guid" />
+        <xs:element minOccurs="0" name="motivo" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="idResponsavel" type="q7:guid" />
+        <xs:element minOccurs="0" name="tipoResponsavel" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelarResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferirResponsabilidade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q8:guid" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="idResponsavel" type="q9:guid" />
+        <xs:element minOccurs="0" name="tipoResponsavel" type="xs:int" />
+        <xs:element minOccurs="0" name="observação" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferirResponsabilidadeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CriarSolicitacoesDeDocumentos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="idAluno" type="q10:guid" />
+        <xs:element minOccurs="0" name="tipoDoMotivo" type="xs:int" />
+        <xs:element minOccurs="0" name="tipoDeDocumento" type="xs:int" />
+        <xs:element minOccurs="0" name="especificacaoDoMotivo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="informarSemestreAtual" type="xs:boolean" />
+        <xs:element minOccurs="0" name="informarCargaHoraria" type="xs:boolean" />
+        <xs:element minOccurs="0" name="informarAulaAosSabados" type="xs:boolean" />
+        <xs:element minOccurs="0" name="informarPrevisaoDeConclusao" type="xs:boolean" />
+        <xs:element minOccurs="0" name="informarDisciplina" type="xs:boolean" />
+        <xs:element minOccurs="0" name="informarPeriodo" type="xs:boolean" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="disciplinaInformada" type="q11:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CriarSolicitacoesDeDocumentosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="CriarSolicitacoesDeDocumentosResult" type="q12:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTipos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTiposResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" minOccurs="0" name="ListarTiposResult" nillable="true" type="q13:ArrayOfTiposRequerimentoModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSolicitacaoDeDocumentos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="idRequerimento" type="q14:guid" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSolicitacaoDeDocumentosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" minOccurs="0" name="GetSolicitacaoDeDocumentosResult" nillable="true" type="q15:SolicitacaoDeDocumentosModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="List">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RA" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="curso" type="q16:guid" />
+        <xs:element minOccurs="0" name="periodo" type="xs:int" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" minOccurs="0" name="ListResult" nillable="true" type="q17:ArrayOfRequerimentoSimplesModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListJáAtendidas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RA" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="curso" type="q18:guid" />
+        <xs:element minOccurs="0" name="periodo" type="xs:int" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListJáAtendidasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" minOccurs="0" name="ListJáAtendidasResult" nillable="true" type="q19:ArrayOfRequerimentoSimplesModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSolicitacoesDeDocumentos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSolicitacoesDeDocumentosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" minOccurs="0" name="ListarSolicitacoesDeDocumentosResult" nillable="true" type="q20:ArrayOfSolicitacaoDeDocumentosModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarDeclaracoesDeProva">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarDeclaracoesDeProvaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" minOccurs="0" name="ListarDeclaracoesDeProvaResult" nillable="true" type="q21:ArrayOfRequerimentoSimplesModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSolicitacoesDePasse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarSolicitacoesDePasseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" minOccurs="0" name="ListarSolicitacoesDePasseResult" nillable="true" type="q22:ArrayOfRequerimentoSimplesModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarReaproveitamentos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarReaproveitamentosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" minOccurs="0" name="ListarReaproveitamentosResult" nillable="true" type="q23:ArrayOfRequerimentoSimplesModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTrancamentosDeCurso">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTrancamentosDeCursoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" minOccurs="0" name="ListarTrancamentosDeCursoResult" nillable="true" type="q24:ArrayOfRequerimentoSimplesModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTrancamentosDeMatricula">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTrancamentosDeMatriculaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" minOccurs="0" name="ListarTrancamentosDeMatriculaResult" nillable="true" type="q25:ArrayOfRequerimentoSimplesModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTipoDeStatus">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTipoDeStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" minOccurs="0" name="ListarTipoDeStatusResult" nillable="true" type="q26:ArrayOfTipoDeStatusModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

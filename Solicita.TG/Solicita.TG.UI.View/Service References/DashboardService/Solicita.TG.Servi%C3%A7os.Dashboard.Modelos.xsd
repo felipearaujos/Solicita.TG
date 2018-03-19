@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Dashboard.Modelos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Dashboard.Modelos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="VolumetriaAnual">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Chart" nillable="true" type="tns:ArrayOfVolumetriaAnualChartData" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MesesNoPeriodo" nillable="true" type="q1:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VolumetriaAnual" nillable="true" type="tns:VolumetriaAnual" />
+  <xs:complexType name="ArrayOfVolumetriaAnualChartData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VolumetriaAnualChartData" nillable="true" type="tns:VolumetriaAnualChartData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVolumetriaAnualChartData" nillable="true" type="tns:ArrayOfVolumetriaAnualChartData" />
+  <xs:complexType name="VolumetriaAnualChartData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LabelDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="value" nillable="true" type="q2:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VolumetriaAnualChartData" nillable="true" type="tns:VolumetriaAnualChartData" />
+  <xs:complexType name="VolumetriaMensalModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="VolumetriaPorMes" nillable="true" type="tns:ArrayOfVolumetriaMensalPorCategoriaModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VolumetriaMensalModel" nillable="true" type="tns:VolumetriaMensalModel" />
+  <xs:complexType name="ArrayOfVolumetriaMensalPorCategoriaModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VolumetriaMensalPorCategoriaModel" nillable="true" type="tns:VolumetriaMensalPorCategoriaModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVolumetriaMensalPorCategoriaModel" nillable="true" type="tns:ArrayOfVolumetriaMensalPorCategoriaModel" />
+  <xs:complexType name="VolumetriaMensalPorCategoriaModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VolumetriaMensalPorCategoriaModel" nillable="true" type="tns:VolumetriaMensalPorCategoriaModel" />
+  <xs:complexType name="ArrayOfCustomDashBoardModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomDashBoardModel" nillable="true" type="tns:CustomDashBoardModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomDashBoardModel" nillable="true" type="tns:ArrayOfCustomDashBoardModel" />
+  <xs:complexType name="CustomDashBoardModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountPorTipo" type="xs:int" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomDashBoardModel" nillable="true" type="tns:CustomDashBoardModel" />
+  <xs:complexType name="ResumoAtual">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MediaConclusao" type="xs:double" />
+      <xs:element minOccurs="0" name="QuantidadeEmAndamento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResumoAtual" nillable="true" type="tns:ResumoAtual" />
+</xs:schema>

@@ -1,0 +1,6 @@
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Sender\bin\Debug\Solicita.TG.Sender.exe.config
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Sender\bin\Debug\Solicita.TG.Sender.exe
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Sender\bin\Debug\Solicita.TG.Sender.pdb
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Sender\obj\Debug\Solicita.TG.Sender.csprojResolveAssemblyReference.cache
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Sender\obj\Debug\Solicita.TG.Sender.exe
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Sender\obj\Debug\Solicita.TG.Sender.pdb

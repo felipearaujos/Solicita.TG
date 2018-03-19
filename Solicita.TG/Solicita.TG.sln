@@ -1,0 +1,148 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG", "Solicita.TG\Solicita.TG.csproj", "{94CBFBB3-1E35-4801-AC23-EE861E689401}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.Domínio", "Solicita.TG.Domínio\Solicita.TG.Domínio.csproj", "{E94E5EAA-891E-43ED-88DD-889DA33F629F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.Domínio.Testes", "Solicita.TG.Domínio.Testes\Solicita.TG.Domínio.Testes.csproj", "{98763CD8-A001-4227-A5EA-CF6DD69A3A68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.Serviços.Testes", "Solicita.TG.Serviços.Testes\Solicita.TG.Serviços.Testes.csproj", "{B1E0CC9F-6048-499F-9A8B-2980FEEC294D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.Persistência", "Solicita.TG.Persistência\Solicita.TG.Persistência.csproj", "{3B07C463-94C0-4C81-9ABD-791D12D3751A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.Persistência.Testes", "Solicita.TG.Persistência.Testes\Solicita.TG.Persistência.Testes.csproj", "{D4F617DC-6C56-4CA3-A6D7-E3C7AF8CE8CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.Serviços", "Solicita.TG.Serviços\Solicita.TG.Serviços.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.Utils", "Solicita.TG.Utils\Solicita.TG.Utils.csproj", "{5A2D3C3B-0BF3-4187-AE2E-8C969B10BBFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.Utils.Testes", "Solicita.TG.Utils.Testes\Solicita.TG.Utils.Testes.csproj", "{1F248E9A-7D97-43B1-B268-476627FF941B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.UI.View", "Solicita.TG.UI.View\Solicita.TG.UI.View.csproj", "{38C5447E-A768-4F62-8EBC-F603D4705DD5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{15B3E0D2-6217-493A-A690-158C497F5318} = {15B3E0D2-6217-493A-A690-158C497F5318}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.Reset", "Solicita.TG.Reset\Solicita.TG.Reset.csproj", "{4C3CEDCE-3E64-45C6-B6CF-FC1FE5BF6F1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.Processors", "Solicita.TG.Processors\Solicita.TG.Processors.csproj", "{14461ADE-A074-458C-9F96-14D4F2A468BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.CrystalReport", "Solicita.TG.CrystalReport\Solicita.TG.CrystalReport.csproj", "{8A2C2E96-429A-423D-8AA9-05C66F98BD21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.Sender", "Solicita.TG.Sender\Solicita.TG.Sender.csproj", "{16939159-161B-4483-BA65-FF4BFF84111F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solicita.TG.Compartilhado", "Solicita.TG.Compartilhado\Solicita.TG.Compartilhado.csproj", "{F8154F15-F932-4F0A-A1B4-98FF2F23B691}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94CBFBB3-1E35-4801-AC23-EE861E689401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94CBFBB3-1E35-4801-AC23-EE861E689401}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94CBFBB3-1E35-4801-AC23-EE861E689401}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94CBFBB3-1E35-4801-AC23-EE861E689401}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E94E5EAA-891E-43ED-88DD-889DA33F629F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E94E5EAA-891E-43ED-88DD-889DA33F629F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E94E5EAA-891E-43ED-88DD-889DA33F629F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E94E5EAA-891E-43ED-88DD-889DA33F629F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98763CD8-A001-4227-A5EA-CF6DD69A3A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98763CD8-A001-4227-A5EA-CF6DD69A3A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98763CD8-A001-4227-A5EA-CF6DD69A3A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98763CD8-A001-4227-A5EA-CF6DD69A3A68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1E0CC9F-6048-499F-9A8B-2980FEEC294D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1E0CC9F-6048-499F-9A8B-2980FEEC294D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1E0CC9F-6048-499F-9A8B-2980FEEC294D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1E0CC9F-6048-499F-9A8B-2980FEEC294D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B07C463-94C0-4C81-9ABD-791D12D3751A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B07C463-94C0-4C81-9ABD-791D12D3751A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B07C463-94C0-4C81-9ABD-791D12D3751A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B07C463-94C0-4C81-9ABD-791D12D3751A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4F617DC-6C56-4CA3-A6D7-E3C7AF8CE8CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4F617DC-6C56-4CA3-A6D7-E3C7AF8CE8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4F617DC-6C56-4CA3-A6D7-E3C7AF8CE8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4F617DC-6C56-4CA3-A6D7-E3C7AF8CE8CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A2D3C3B-0BF3-4187-AE2E-8C969B10BBFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A2D3C3B-0BF3-4187-AE2E-8C969B10BBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A2D3C3B-0BF3-4187-AE2E-8C969B10BBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A2D3C3B-0BF3-4187-AE2E-8C969B10BBFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F248E9A-7D97-43B1-B268-476627FF941B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F248E9A-7D97-43B1-B268-476627FF941B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F248E9A-7D97-43B1-B268-476627FF941B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F248E9A-7D97-43B1-B268-476627FF941B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38C5447E-A768-4F62-8EBC-F603D4705DD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38C5447E-A768-4F62-8EBC-F603D4705DD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38C5447E-A768-4F62-8EBC-F603D4705DD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38C5447E-A768-4F62-8EBC-F603D4705DD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C3CEDCE-3E64-45C6-B6CF-FC1FE5BF6F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C3CEDCE-3E64-45C6-B6CF-FC1FE5BF6F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C3CEDCE-3E64-45C6-B6CF-FC1FE5BF6F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C3CEDCE-3E64-45C6-B6CF-FC1FE5BF6F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14461ADE-A074-458C-9F96-14D4F2A468BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14461ADE-A074-458C-9F96-14D4F2A468BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14461ADE-A074-458C-9F96-14D4F2A468BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14461ADE-A074-458C-9F96-14D4F2A468BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A2C2E96-429A-423D-8AA9-05C66F98BD21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A2C2E96-429A-423D-8AA9-05C66F98BD21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A2C2E96-429A-423D-8AA9-05C66F98BD21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A2C2E96-429A-423D-8AA9-05C66F98BD21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16939159-161B-4483-BA65-FF4BFF84111F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16939159-161B-4483-BA65-FF4BFF84111F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16939159-161B-4483-BA65-FF4BFF84111F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16939159-161B-4483-BA65-FF4BFF84111F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8154F15-F932-4F0A-A1B4-98FF2F23B691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8154F15-F932-4F0A-A1B4-98FF2F23B691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8154F15-F932-4F0A-A1B4-98FF2F23B691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8154F15-F932-4F0A-A1B4-98FF2F23B691}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 12
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://solicitaweb.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Solicita.TG.CrystalReport\\Solicita.TG.CrystalReport.csproj
+		SccProjectName1 = Solicita.TG.CrystalReport
+		SccLocalPath1 = Solicita.TG.CrystalReport
+		SccProjectUniqueName2 = Solicita.TG.Domínio\\Solicita.TG.Domínio.csproj
+		SccProjectName2 = Solicita.TG.Domínio
+		SccLocalPath2 = Solicita.TG.Domínio
+		SccProjectUniqueName3 = Solicita.TG.Persistência\\Solicita.TG.Persistência.csproj
+		SccProjectName3 = Solicita.TG.Persistência
+		SccLocalPath3 = Solicita.TG.Persistência
+		SccProjectUniqueName4 = Solicita.TG.Processors\\Solicita.TG.Processors.csproj
+		SccProjectName4 = Solicita.TG.Processors
+		SccLocalPath4 = Solicita.TG.Processors
+		SccProjectUniqueName5 = Solicita.TG.Reset\\Solicita.TG.Reset.csproj
+		SccProjectName5 = Solicita.TG.Reset
+		SccLocalPath5 = Solicita.TG.Reset
+		SccProjectUniqueName6 = Solicita.TG.Serviços\\Solicita.TG.Serviços.csproj
+		SccProjectName6 = Solicita.TG.Serviços
+		SccLocalPath6 = Solicita.TG.Serviços
+		SccProjectUniqueName7 = Solicita.TG.UI.View\\Solicita.TG.UI.View.csproj
+		SccProjectName7 = Solicita.TG.UI.View
+		SccLocalPath7 = Solicita.TG.UI.View
+		SccProjectUniqueName8 = Solicita.TG.Utils\\Solicita.TG.Utils.csproj
+		SccProjectName8 = Solicita.TG.Utils
+		SccLocalPath8 = Solicita.TG.Utils
+		SccProjectUniqueName9 = Solicita.TG\\Solicita.TG.csproj
+		SccProjectName9 = Solicita.TG
+		SccLocalPath9 = Solicita.TG
+		SccProjectUniqueName10 = Solicita.TG.Sender\\Solicita.TG.Sender.csproj
+		SccProjectName10 = Solicita.TG.Sender
+		SccLocalPath10 = Solicita.TG.Sender
+		SccProjectUniqueName11 = Solicita.TG.Compartilhado\\Solicita.TG.Compartilhado.csproj
+		SccProjectName11 = Solicita.TG.Compartilhado
+		SccLocalPath11 = Solicita.TG.Compartilhado
+	EndGlobalSection
+EndGlobal

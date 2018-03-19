@@ -1,0 +1,65 @@
+﻿
+<div class="row">
+    <div class="col-md-12 mt">
+        <div class="content-panel">
+            <form class="form-inline padding15" role="form">
+                <div class="form-group">
+                    <input type="password" class="form-control" id="txtNome" placeholder="Nome">
+                </div>
+                <button type="button" class="btn btn-danger">FILTRAR</button>
+                <button type="button" class="btn btn-danger pull-right" id="btnNovoFuncionarioAcademico">CADASTRAR NOVO FUNCIONÁRIO</button>
+            </form>
+            <br />
+            <table id="tblFuncionarioAcademico" class="table table-hover">
+                <h4><i class="fa fa-angle-right"></i> FUNCIONÁRIOS CADASTRADOS </h4>
+                <hr>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>      
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Content/DashGum/js/jquery.js"></script>
+<script>
+
+    $("#btnNovoFuncionarioAcademico").click(function (e) {
+        window.location.href = "/FuncionarioAcademico/Cadastrar";
+    });
+
+    $(document).ready(function () {
+        $.post("/FuncionarioAcademico/ListarFuncionarioAcademicos",
+        function (data, status) {
+            $("#tblFuncionarioAcademico tbody").html('');
+
+            novaLinha = '';
+
+            for (i = 0; i < data.length; i++) {
+                novaLinha = '<tr>' +
+                                    '<td>' + data[i].Nome + '</td>' +
+                                    '<td>' + data[i].Sobrenome + '</td>' +
+                                    '<td>'
+                                        + '<div>'
+                                            + '<i class="fa fa-pencil-square btnEditar" id="' + data[i].Id + '" aria-hidden="true"></i>'
+                                        + '</div>'
+                                    + '</td>'
+
+                '</tr>';
+                $("#tblFuncionarioAcademico tbody").append(novaLinha);
+            }
+
+            $(".btnEditar").click(function (e) {
+                e.preventDefault();
+                var p = e.target.getAttribute("id");
+                var url = "/FuncionarioAcademico/Editar/" + p;
+                window.location.href = url;             
+            });
+
+            $("#tblFuncionarioAcademico").append('</tbody>');
+        });
+    });
+</script>

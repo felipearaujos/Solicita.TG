@@ -1,0 +1,340 @@
+﻿@model Solicita.TG.UI.View.CursoService.CursoModel
+
+<div class="row mt">
+    <div class="col-md-12">
+        <div class="form-panel">
+            <h4 class="mb"><i class="fa fa-angle-right"></i>Dados do @Model.Nome</h4>
+            <div class="form-horizontal style-form">
+                <input type="hidden" id="idField" value="@Model.Id" />
+                <div class="form-group">                    
+
+                    <div class="col-md-6">
+                        <label class="control-label">Nome</label>
+                        <input type="text" id="txtNome" value="@Model.Nome" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label">Carga Horária</label>
+                        <input type="text" id="txtCargaHoraria" class="editInput form-control" value="@Model.CargaHoraria" disabled="disabled" /><br />
+                    </div>
+
+                </div>
+                <div class="form-group">                    
+                    <div class="col-md-6">
+                        <label class="control-label">Disciplinas</label>
+                        <input class="editInput form-control" type="hidden" id="txtDisciplina" value="" />
+                        <select class="editInput form-control" id="cmbDisciplina"></select>
+
+                        <div class="btnAddArray btn btn-danger pull-right" id="btnAdicionarDisciplina"><i class="fa fa-check-square" aria-hidden="true"></i> ADICIONAR </div>
+                    </div>
+
+                </div>
+  
+                <table id="tblGradeCurricular" class="table tableEdit">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Carga Horária</th>
+                            <th>Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var obj in Model.GradeCurricular)
+                        {
+                            <tr>
+                                <td class="td-id display-none" style="display: none">@obj.Id</td>
+                                <td>@obj.Nome</td>
+                                <td class="td-hora">@obj.CargaHoraria</td>
+                                <td>
+                                    <div class="btnExcluirDisciplina" id="@obj.Id">X </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div class="form-group" style="padding: 15px 15px 15px 15px;">
+                    <a class="btn btn-danger pull-right" id="btnSalvar" style="margin: 10px 10px 10px 10px;">Confirmar</a>
+                    <a class="btn btn-danger pull-right" style="margin: 10px 10px 10px 10px;">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- col-md-12-->
+</div>
+<!-- /row -->
+
+
+<script src="~/Content/DashGum/js/jquery.js"></script>
+<script>
+    //function MensagemDeErro(xhr) {
+    //    var msg = JSON.parse(xhr.responseText);
+    //    $("#msgErro").text(msg.Message);
+    //}
+
+
+    $(function () {
+        $.getJSON('/Disciplina/ListarJson', function (result) {
+            CreateComboBox('#cmbDisciplina', '#txtDisciplina', result);
+        });
+    });
+
+
+
+
+    $("#cmbDisciplina").change(function () {
+        $("#txtDisciplina").val($("#cmbDisciplina").val());
+        var nomeDisciplina = $("#cmbDisciplina").find('option:selected').text();
+        $("#txtDisciplina").attr("nome", nomeDisciplina.split('-')[0])
+        $("#txtDisciplina").attr("cargaHoraria", nomeDisciplina.split('-')[1].replace('Horas', ''))
+    });
+
+    $("#btnSalvar").click(function (e) {
+        debugger;
+        jQuery.ajaxSettings.traditional = true;
+
+        var ids = GetArrayIdDisciplinas();
+
+        $.ajax({
+            type: "POST",
+            url: '/Curso/Salvar',
+            data: { id: $("#idField").val(), nome: $("#txtNome").val(), disciplinas: ids },
+            success: function (result) {
+                window.location = "/Curso";
+            },
+            error: function (xhr, status, error) {
+                MensagemDeErro(xhr);
+            }
+        });
+
+    });
+
+    $("#btnAdicionarDisciplina").click(function () {
+
+        var id = $("#txtDisciplina").val();
+        var nome = $("#txtDisciplina").attr("nome");
+        var horas = $("#txtDisciplina").attr("cargaHoraria");
+
+        var newRow = '<tr>'
+                            + '<td class="td-id display-none"  style="display: none">' + id + '</td>'
+                            + '<td>' + nome + '</td>'
+                            + '<td class="td-hora">' + horas + '</td>'
+                            + '<td>'
+                                    + '<div class="btnExcluirDisciplina" id="' + id + '"> X </div>'
+                            + '</td>'
+                        + '</tr>';
+
+        $("#tblGradeCurricular").append(newRow);
+
+        DefineSumCargaHoraria();
+
+        $(".btnExcluirDisciplina").click(function (e) {
+            ExcluirHandler(e);
+        });
+
+    });
+
+    $(".btnExcluirDisciplina").click(function (e) {
+        ExcluirHandler(e);
+    });
+
+
+    function ExcluirHandler(e) {
+        e.target.parentElement.parentElement.remove();
+
+        DefineSumCargaHoraria();
+    }
+
+    function DefineSumCargaHoraria() {
+        soma = 0;
+
+        $(".td-hora").each(function () {
+            soma += parseInt(this.innerHTML);
+        });
+
+        $("#txtCargaHoraria").val(soma);
+    }
+
+    function GetArrayIdDisciplinas() {
+        var MyArray = [];
+
+        $(".td-id").each(function () {
+            MyArray.push(this.innerHTML)
+        });
+
+        return MyArray;
+    }
+</script>
+
+@*
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2 class="titleList"><i class="fa fa-graduation-cap" aria-hidden="true"></i>  CURSO</h2>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+       
+            
+        <div class="col-md-3 btnEdit" >
+            <a href="/home" class="link right">Voltar <i class="fa fa-arrow-circle-left"></i></a>
+        </div>    
+        
+        <div class="col-md-3">
+            <div class="btnEdit" id="btnSalvar"> <i class="fa fa-check-square" aria-hidden="true"></i> CONFIRMAR </div>        
+        </div>
+    </div>
+    <input type="hidden" id="idField" value="@Model.Id" />
+    <div class="row">
+        <div class="col-md-3">
+            Nome
+            <input class="editInput" id="txtNome" value="@Model.Nome" />
+        </div>
+        <div class="col-md-3">
+            Carga Horária
+            <input type="text" id="txtCargaHoraria" class="editInput" value="@Model.CargaHoraria" disabled="disabled" /><br />
+        </div>
+      
+    </div>
+    <div class="row">
+
+        <div class="col-md-4">
+            Disciplinas
+            <input  class="editInput" type="hidden" id="txtDisciplina"  value="" />
+                <select class="editInput" id="cmbDisciplina"></select>
+        </div>
+         <div class="col-md-4">
+            <div class="btnAddArray" id="btnAdicionarDisciplina"> <i class="fa fa-check-square" aria-hidden="true"></i> ADICIONAR </div>        
+        </div>
+    </div>
+
+
+    <div class="row">
+                <table id="tblGradeCurricular" class="tableEdit">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Carga Horária</th>             
+                        <th>Remover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var obj in Model.GradeCurricular)
+                    {
+                        <tr>
+                            <td class="td-id display-none"> @obj.Id <</td>
+                            <td>@obj.Nome</td>         
+                            <td class="td-hora"> @obj.CargaHoraria</td>      
+                            <td>                    
+                                <div class="btnExcluirDisciplina" id="@obj.Id"> X </div> 
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+</div>
+
+<script>
+
+    //function MensagemDeErro(xhr) {
+    //    var msg = JSON.parse(xhr.responseText);
+    //    $("#msgErro").text(msg.Message);
+    //}
+
+
+    $(function () {
+        $.getJSON('/Disciplina/ListarJson', function (result) {
+            CreateComboBox('#cmbDisciplina', '#txtDisciplina', result);
+        });
+    });
+
+
+    
+
+    $("#cmbDisciplina").change(function () {
+        $("#txtDisciplina").val($("#cmbDisciplina").val());
+        var nomeDisciplina =  $("#cmbDisciplina").find('option:selected').text();
+        $("#txtDisciplina").attr("nome", nomeDisciplina.split('-')[0])
+        $("#txtDisciplina").attr("cargaHoraria", nomeDisciplina.split('-')[1].replace('Horas', ''))
+    });
+
+    $("#btnSalvar").click(function (e) {
+
+        jQuery.ajaxSettings.traditional = true;
+
+        var ids = GetArrayIdDisciplinas();
+
+        $.ajax({
+            type: "POST",
+            url: '/Curso/Salvar',
+            data: { id: $("#idField").val(), nome: $("#txtNome").val(), disciplinas: ids },
+            success: function (result) {
+                window.location = "/Curso";
+            },
+            error: function (xhr, status, error) {
+                MensagemDeErro(xhr);
+            }
+        });
+
+    });
+
+    $("#btnAdicionarDisciplina").click(function () {
+
+        var id = $("#txtDisciplina").val();
+        var nome = $("#txtDisciplina").attr("nome");
+        var horas = $("#txtDisciplina").attr("cargaHoraria");
+
+        var newRow = '<tr>'
+                            + '<td class="td-id display-none">' + id + '</td>' 
+                            + '<td>' + nome + '</td>'
+                            + '<td class="td-hora">' + horas + '</td>'
+                            + '<td>'
+                                    + '<div class="btnExcluirDisciplina" id="' + id + '"> X </div>'
+                            + '</td>'
+                        + '</tr>';
+
+        $("#tblGradeCurricular").append(newRow);
+
+        DefineSumCargaHoraria();
+
+        $(".btnExcluirDisciplina").click(function (e) {
+            ExcluirHandler(e);
+        });
+
+    });
+
+    $(".btnExcluirDisciplina").click(function (e) {
+        ExcluirHandler(e);
+    });
+
+
+    function ExcluirHandler(e)
+    {
+        e.target.parentElement.parentElement.remove();
+
+        DefineSumCargaHoraria();
+    }
+
+    function DefineSumCargaHoraria()
+    {
+        soma = 0;
+
+        $(".td-hora").each(function () {
+            soma += parseInt(this.innerHTML);
+        });
+
+        $("#txtCargaHoraria").val(soma);
+    }
+
+    function GetArrayIdDisciplinas()
+    {
+        var MyArray = [];
+
+        $(".td-id").each(function () {
+            MyArray.push(this.innerHTML)
+        });
+
+        return MyArray;
+    }
+</script>*@

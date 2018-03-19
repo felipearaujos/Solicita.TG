@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b0c38059-67ec-47c5-a6af-e56a846f06da" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Funcionario/FuncionarioAcademicoService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="6fb65eb2-7840-4a66-b2ab-5734e6d420ad" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Funcionario/FuncionarioAcademicoService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="6c09e285-aeb4-4d58-9d27-0aa5f1c5c0ce" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Funcionario/FuncionarioAcademicoService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="0a85d307-40a3-4930-8bac-fb102fb482bb" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Funcionario/FuncionarioAcademicoService/mex" />
+    <MetadataFile FileName="Solicita.TG.Servi%C3%A7os.xsd" MetadataType="Schema" ID="b240d3fc-4677-43ea-8c77-c4680ff60835" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Funcionario/FuncionarioAcademicoService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="79aeb198-5325-419c-b3b1-99a3163a50ca" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Funcionario/FuncionarioAcademicoService/mex" />
+    <MetadataFile FileName="Solicita.TG.Servi%C3%A7os.FuncionarioAcademico.Modelos.xsd" MetadataType="Schema" ID="e0f0af24-e547-4acb-ab42-11f13a1b93fa" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Funcionario/FuncionarioAcademicoService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

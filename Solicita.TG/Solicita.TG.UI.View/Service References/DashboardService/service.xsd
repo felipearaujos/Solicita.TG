@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Dashboard.Modelos" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="CriarGraficoDeVolumetriaAnual">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CriarGraficoDeVolumetriaAnualResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Dashboard.Modelos" minOccurs="0" name="CriarGraficoDeVolumetriaAnualResult" nillable="true" type="q1:VolumetriaAnual" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CriarGraficoDeVolumetriaMensal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CriarGraficoDeVolumetriaMensalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Dashboard.Modelos" minOccurs="0" name="CriarGraficoDeVolumetriaMensalResult" nillable="true" type="q2:VolumetriaMensalModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GraficoQuantidadePorTipo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="status" nillable="true" type="q3:ArrayOfint" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="aluno" type="q4:guid" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="responsavel" type="q5:guid" />
+        <xs:element minOccurs="0" name="agruparPorTipo" type="xs:boolean" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Disciplina" type="q6:guid" />
+        <xs:element minOccurs="0" name="dataInicial" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dataFinal" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GraficoQuantidadePorTipoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Dashboard.Modelos" minOccurs="0" name="GraficoQuantidadePorTipoResult" nillable="true" type="q7:ArrayOfCustomDashBoardModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResumoAtual">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResumoAtualResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Dashboard.Modelos" minOccurs="0" name="ResumoAtualResult" nillable="true" type="q8:ResumoAtual" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

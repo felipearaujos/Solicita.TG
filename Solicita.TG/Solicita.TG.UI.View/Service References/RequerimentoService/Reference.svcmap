@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="25b4438f-8ca0-4b01-83fd-cecdaa0d0fee" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.Requerimentos/RequerimentoService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="9e8d8931-2aee-481e-84b9-6d23b15c1d17" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.Requerimentos/RequerimentoService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="fd2b66e3-0487-4963-9ced-2d1d5f2ed646" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.Requerimentos/RequerimentoService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="3fd84f47-c69c-4e28-84ca-fde7fd4e79f8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.Requerimentos/RequerimentoService/mex" />
+    <MetadataFile FileName="Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos.xsd" MetadataType="Schema" ID="c1f1778e-5eec-4079-a26d-b518294993ae" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.Requerimentos/RequerimentoService/mex" />
+    <MetadataFile FileName="Solicita.TG.Servi%C3%A7os.Aluno.Modelos.xsd" MetadataType="Schema" ID="2d2e2412-ebd0-4c10-9273-0a04230cc0ba" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.Requerimentos/RequerimentoService/mex" />
+    <MetadataFile FileName="Solicita.TG.Servi%C3%A7os.xsd" MetadataType="Schema" ID="8538f605-4e70-49a3-a7fb-8a3ac81675c1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.Requerimentos/RequerimentoService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

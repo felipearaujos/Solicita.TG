@@ -1,0 +1,4 @@
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Compartilhado\bin\Debug\Solicita.TG.Compartilhado.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Compartilhado\bin\Debug\Solicita.TG.Compartilhado.pdb
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Compartilhado\obj\Debug\Solicita.TG.Compartilhado.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Compartilhado\obj\Debug\Solicita.TG.Compartilhado.pdb

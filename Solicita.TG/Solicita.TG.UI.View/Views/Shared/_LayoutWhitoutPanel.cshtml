@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>SOLICITA V0.1</title>
+
+    <link href="~/Content/DashGum/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="~/Content/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/Content/DashGum/lineicons/style.css">
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/DashGum/style.css" rel="stylesheet">
+    <link href="~/Content/DashGum/style-responsive.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <section id="container">
+        <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg">
+            <!--logo start-->
+            <a href="index.html" class="logo"><b>SOLICITA - SISTEMA DE GERENCIAMENTO DE REQUERIMENTOS</b></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+            </div>
+        </header>
+        <!--header end-->
+        <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+        <!--sidebar start-->
+
+        <!--sidebar end-->
+        <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                @RenderBody()
+            </section>
+        </section>
+
+        <!--main content end-->
+      
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*<div class="container body-content">
+
+            <div class="navbar navbar-fixed-top menuInferiorColor accountOpen">
+                <div class="row">
+                    <div class="col-md-12 ajusteTituloMain" class="redirectView">
+                        <center><p>SOLICITA - Sistema de Requerimentos Online <i id="" class="fa fa-angle-double-down" aria-hidden="true"></i></p></center>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                        <div class="infoAccount" style="display:none;">
+                            <div class="row">
+                                <center><label style="font-size:25px;color:white;"><i class="fa fa-user" aria-hidden="true"></i></label></center>
+                            </div>
+                            <div class="row">
+                                <center><label style="font-size:14px;color:white;"  id="txtUsuarioLogado">Não Logado</label></center>
+                            </div>
+                            <div class="row">
+                                <center><label style="font-size:14px;color:white;"  id="txtTipo">Não Logado</label></center>
+                            </div>
+                            <div class="row">
+                                <center><a id="btnExitSession" style="font-size:20px;color:white;font-family:'Century Gothic'">SAIR</a></center>
+                            </div>
+                        </div>
+                            </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                </div>
+            </div>
+        <br />
+            @RenderBody()
+            <hr />
+            <footer>
+            </footer>
+        </div>*@
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="~/Content/DashGum/js/js/jquery.js"></script>
+<script src="~/Content/DashGum/js/jquery-1.8.3.min.js"></script>
+<script src="~/Content/DashGum/js/bootstrap.min.js"></script>
+<script class="include" type="text/javascript" src="~/Content/DashGum/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="~/Content/DashGum/js/jquery.scrollTo.min.js"></script>
+<script src="~/Content/DashGum/js/jquery.nicescroll.js" type="text/javascript"></script>
+<script src="~/Content/DashGum/js/jquery.sparkline.js"></script>
+
+
+<!--common script for all pages-->
+<script src="~/Content/DashGum/js/common-scripts.js"></script>
+<script src="~/Scripts/Generic/genericScripts.js"></script>
+
+<script type="text/javascript" src="~/Content/DashGum/js/gritter/js/jquery.gritter.js"></script>
+<script type="text/javascript" src="~/Content/DashGum/js/gritter-conf.js"></script>
+
+<!--script for this page-->
+<script src="~/Content/DashGum/js/sparkline-chart.js"></script>
+<script src="~/Content/DashGum/js/zabuto_calendar.js"></script>
+
+
+<!-- js placed at the end of the document so the pages load faster -->
+<!--common script for all pages-->
+<!--script for this page-->
+<script src="~/Content/DashGum/js/chart-master/Chart.js"></script>
+<script src="~/Content/DashGum/js/chartjs-conf.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        $("#date-popover").popover({ html: true, trigger: "manual" });
+        $("#date-popover").hide();
+        $("#date-popover").click(function (e) {
+            $(this).hide();
+        });
+
+        $("#my-calendar").zabuto_calendar({
+            action: function () {
+                return myDateFunction(this.id, false);
+            },
+            action_nav: function () {
+                return myNavFunction(this.id);
+            },
+            ajax: {
+                url: "show_data.php?action=1",
+                modal: true
+            },
+            legend: [
+                { type: "text", label: "Special event", badge: "00" },
+                { type: "block", label: "Regular event", }
+            ]
+        });
+    });
+
+
+    function myNavFunction(id) {
+        $("#date-popover").hide();
+        var nav = $("#" + id).data("navigation");
+        var to = $("#" + id).data("to");
+        console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+    }
+
+    var open = false;
+
+    $(".accountOpen").click(function (e) {
+
+        if (open) {
+            $(".accountOpen").animate({
+                opacity: '1',
+                height: '50px'
+            }, {
+                duration: "slow"
+            });
+
+            open = false;
+        }
+        else {
+            $(".accountOpen").animate({
+                opacity: '0.9',
+                height: '200px'
+            }, {
+                duration: "slow"
+            });
+
+            if ($("#txtUsuarioLogado").text() == "Não Logado")
+                $("#btnExitSession").hide();
+            else
+                $("#btnExitSession").show();
+
+            $(".infoAccount").show();
+
+            open = true;
+        }
+    });
+
+    $("#btnExitSession").click(function (e) {
+        $.ajax(
+        {
+            type: 'POST',
+            url: '/Acesso/Logoff',
+            success: function (data) {
+                RedirectTo('\Acesso');
+            }
+        });
+    });
+
+    $(function () {
+        $(".accountOpen").css("height", "50px");
+        $(".infoAccount").hide();
+    });
+
+    $(function () {
+        $.ajax(
+        {
+            type: 'POST',
+            url: '/Acesso/MostrarInfosDoUsuario',
+            success: function (data) {
+                $('#txtUsuarioLogado').text(data.Usuario);
+                $('#txtTipo').text(data.Tipo);
+            }
+        });
+    });
+
+
+    $(".redirectView").click(function (e) {
+        RedirectTo('\\');
+    });
+
+</script>
+
+
+@*<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+</head>
+<body>
+        <div class="navbar navbar-fixed-top menuInferiorColor accountOpen">
+            <div class="row">
+                <div class="col-md-12 ajusteTituloMain" class="redirectView">
+                    <center><p>SOLICITA - Sistema de Requerimentos Online <i id="" class="fa fa-angle-double-down" aria-hidden="true"></i></p></center>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 ">
+                        <div class="infoAccount" style="display:none;">
+                        <div class="row">
+                            <center><label style="font-size:25px;color:white;"><i class="fa fa-user" aria-hidden="true"></i></label></center>
+                        </div>
+                        <div class="row" >
+                            <center><label style="font-size:14px;color:white;" id="txtUsuarioLogado">Não Logado</label></center>
+                        </div>
+                        <div class="row" >
+                            <center><label style="font-size:14px;color:white;" id="txtTipo">Não Logado</label></center>
+                        </div>
+                        <div class="row" hidden>
+                            <center><label style="font-size:14px;color:white;" id="txtTipoValue"></label></center>
+                        </div>
+                        <div class="row">
+                            <center><a id="btnExitSession" style="font-size:20px;color:white;font-family:'Century Gothic'">SAIR</a></center>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </div>
+    @RenderBody()
+    <hr />
+    <footer>
+           
+    </footer>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+<script>
+
+    var open = false;
+
+
+    $("#btnExitSession").click(function (e) {
+        $.ajax(
+        {
+            type: 'POST',
+            url: '/Acesso/Logoff',
+            success: function (data) {
+                RedirectTo('\Acesso');
+            }
+        });
+    });
+
+    $(".accountOpen").click(function (e) {
+
+        if (open) {
+            $(".accountOpen").animate({
+                opacity: '1',
+                height: '50px'
+            }, {
+                duration: "slow"
+            });
+            open = false;
+        }
+        else {
+            $(".accountOpen").animate({
+                opacity: '0.9',
+                height: '200px'
+            }, {
+                duration: "slow"
+            });
+
+            $(".infoAccount").show();
+
+            open = true;
+        }
+    });
+
+    $(function () {
+        $(".accountOpen").css("height", "50px");
+        $(".infoAccount").hide();
+    });
+
+    $("#redirectView").click(function (e) {
+        RedirectTo('\\');
+    });
+
+
+    function checkPermissions() {
+
+        if ($("#txtTipoValue").text() === '4') {
+            $(".checkAluno").show();
+        }
+        else if ($("#txtTipoValue").text() === '3') {
+            $(".checkProfessor").show();
+        }
+        else if ($("#txtTipoValue").text() === '2') {
+            $(".checkDiretor").show();
+        }
+        else if ($("#txtTipoValue").text() === '1') {
+            $(".checkFunc").show();
+        }
+    }
+
+    function returnTypeAccess() {
+        return $("#txtTipoValue").text();
+    }
+
+    $(function () {
+        $.ajax(
+        {
+            type: 'POST',
+            url: '/Acesso/MostrarInfosDoUsuario',
+            success: function (data) {
+                $('#txtUsuarioLogado').text(data.Usuario);
+                $('#txtTipo').text(data.Tipo);
+                $('#txtTipoValue').text(data.TipoValue);
+                checkPermissions();
+            }
+        });
+    });
+
+</script>*@

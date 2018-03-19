@@ -1,0 +1,135 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>LOGIN - SOLICITA V0.1</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/DashGum/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/DashGum/style.css" rel="stylesheet">
+    <link href="~/Content/DashGum/style-responsive.css" rel="stylesheet">
+    <link href="~/Content/toastr.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- **********************************************************************************************************************************************************
+    MAIN CONTENT
+    *********************************************************************************************************************************************************** -->
+
+    <div id="login-page">
+        <div class="container">
+
+            <form class="form-login">
+                <h2 class="form-login-heading">ÁREA DO ALUNO</h2>
+                <div class="login-wrap">                                        
+                    <input type="text" class="form-control" id="txtRA" placeholder="RA" autofocus>
+                    <br>
+                    <input type="password" class="form-control" id="txtSenha" placeholder="SENHA">
+                    <br>
+                    <button class="btn btn-theme btn-block" id="btnAcessarAluno"  type="button"><i class="fa fa-lock"></i> ACESSAR</button>
+                    <hr>
+                    <label class="checkbox">
+                        <span class="pull-right">
+                            <a data-toggle="modal" href="/Acesso/RecuperacaoDeSenha">Esqueceu a Senha?</a>
+                        </span>
+                    </label>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+
+
+</body>
+</html>
+<script src="~/Content/DashGum/js/jquery.js"></script>
+<script src="~/Content/DashGum/js/bootstrap.min.js"></script>
+
+<!--BACKSTRETCH-->
+<!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+<script type="text/javascript" src="~/Content/DashGum/js/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="~/Scripts/toastr.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        //$("#date-popover").popover({ html: true, trigger: "manual" });
+        //$("#date-popover").hide();
+        //$("#date-popover").click(function (e) {
+        //    $(this).hide();
+        //});
+
+        //$("#my-calendar").zabuto_calendar({
+        //    action: function () {
+        //        return myDateFunction(this.id, false);
+        //    },
+        //    action_nav: function () {
+        //        return myNavFunction(this.id);
+        //    },
+        //    ajax: {
+        //        url: "show_data.php?action=1",
+        //        modal: true
+        //    },
+        //    legend: [
+        //        { type: "text", label: "Special event", badge: "00" },
+        //        { type: "block", label: "Regular event", }
+        //    ]
+        //});
+    });
+
+    //function myNavFunction(id) {
+    //    $("#date-popover").hide();
+    //    var nav = $("#" + id).data("navigation");
+    //    var to = $("#" + id).data("to");
+    //    console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+    //}
+
+    $("#btnAcessarAluno").click(function (e) {
+        $.post("RealizarLoginComoAluno", {
+            RA: $("#txtRA").val(), RG: "", Senha: $("#txtSenha").val()
+        },
+        function (data, status) {
+            if (data.AcessoLiberado) {
+                toastr.options.closeMethod = 'fadeOut';
+                toastr.options.closeDuration = 300;
+                toastr.options.closeEasing = 'swing';
+                toastr.options.progressBar = true; toastr.options.onHidden = function () {
+                    localStorage.setItem("AlunoLogged", $("#txtRA").val());
+                    window.location.href = "/Requerimento/IndexAluno";
+                }
+                toastr.success('Você será redirecionado para Página Inicial', 'Bem Vindo ' + data.NomeDoUsuario);
+            }
+            else {
+                toastr.options.closeMethod = 'fadeOut';
+                toastr.options.closeDuration = 300;
+                toastr.options.closeEasing = 'swing';
+                toastr.options.progressBar = true;
+                toastr.error('Usuário ou seja incorretos.', 'Acesso Negado!');
+            };
+        });
+    });
+
+</script>

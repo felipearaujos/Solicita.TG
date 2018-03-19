@@ -1,0 +1,4 @@
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.CrystalReport\bin\Debug\Solicita.TG.CrystalReport.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.CrystalReport\bin\Debug\Solicita.TG.CrystalReport.pdb
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.CrystalReport\obj\Debug\Solicita.TG.CrystalReport.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.CrystalReport\obj\Debug\Solicita.TG.CrystalReport.pdb

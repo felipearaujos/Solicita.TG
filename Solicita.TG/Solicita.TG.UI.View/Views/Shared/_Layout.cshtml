@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>SOLICITA V0.1</title>
+
+    <link href="~/Content/DashGum/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="~/Content/font-awesome.css" rel="stylesheet" >
+    <link rel="stylesheet" type="text/css" href="~/Content/DashGum/lineicons/style.css" >
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/DashGum/style.css" rel="stylesheet">
+    <link href="~/Content/DashGum/style-responsive.css" rel="stylesheet">
+    <link href="~/Content/DashGum/awesomplete.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <section id="container" >
+    <!-- **********************************************************************************************************************************************************
+    TOP BAR CONTENT & NOTIFICATIONS
+    *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <header class="header black-bg">
+        <!--logo start-->
+        <a class="logo"><b>SOLICITA - SISTEMA DE GERENCIAMENTO DE REQUERIMENTOS</b></a>
+        <!--logo end-->
+        <div class="nav notify-row" id="top_menu">
+        </div>
+        <div class="top-menu">
+            <ul class="nav pull-right top-menu" id="btnExitSession">
+                <li ><a class="logout">Logout</a></li>
+            </ul>
+        </div>
+    </header>
+    <!--header end-->
+    <!-- **********************************************************************************************************************************************************
+    MAIN SIDEBAR MENU
+    *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+
+                <p class="centered"><a ><img src="~/Content/img/ui-danro.jpg" class="img-circle" width="60"></a></p>
+                <h5 class="centered" id="txtUsuarioLogado"></h5>
+                <h5 class="centered" style="display:none;" id="txtUsuarioHidden"</h5>
+                <h5 class="centered" id="txtTipo"></h5>
+                <h5 class="centered" id="txtTipoHidden" style="display:none;"></h5>
+
+                <li class="mt">
+                    <a class="Navegavel" id="/Home">
+                        <i class="fa fa-desktop"></i>
+                        <span>Home</span>
+                    </a>                                             
+                </li>
+
+                <li class="sub-menu">
+                    <a data-class="ListarSolicitacaoDeDocumentos" class="ViewReq">
+                        <i class="fa fa-folder-open"></i>
+                        <span>Solicitação de Documentos</span>
+                    </a>
+                </li>
+
+@*                <li class="sub-menu">
+                    <a>
+                        <i class="fa fa-folder-open"></i>
+                        <span>Requerimentos</span>
+                    </a>
+                    <ul class="sub">
+                        <li data-class="ListarSolicitacaoDeDocumentos" class="ViewReq"><a>Solicitação de Documentos</a></li>
+                    </ul>
+                </li>  *@
+@*                <li class="sub-menu">
+                    <a>
+                        <i class="fa fa-dashboard"></i>
+                        <span>Gráficos</span>
+                    </a>
+                    <ul class="sub">                    
+                        <li class="sub-menu">
+                            <a class="GoToChart" id="/Dashboard/QuantidadePorTipo">
+                                <i class="fa fa-dashboard"></i>
+                                <span>Quantidade Por Tipo</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>*@
+
+                        <li class="sub-menu">
+                            <a class="Navegavel" id="/Dashboard">
+                                <i class="fa fa-dashboard"></i>
+                                <span>Gráfico Quantidade Por Tipo</span>
+                            </a>
+                        </li>
+
+
+                        <li class="sub-menu">
+                            <a class="Navegavel" id="/Aluno">
+                                <i class="fa fa-graduation-cap"></i>
+                                <span>Alunos</span>
+                            </a>
+                        </li>
+
+                        <li class="sub-menu">                    
+                            <a class="Navegavel" id="/Curso">
+                                <i class="fa fa-list"></i>
+                                <span>Cursos</span>
+                            </a>                                                
+                        </li>    
+                                            
+                        <li class="sub-menu">
+                            <a class="Navegavel" id="/Disciplina">
+                                <i class="fa fa-bars"></i>
+                                <span>Disciplinas</span>
+                            </a>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a class="Navegavel" id="/Professor">
+                                <i class="fa fa-folder"></i>
+                                <span>Professores</span>
+                            </a>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a class="Navegavel" id="/FuncionarioAcademico">
+                                <i class="fa fa-group"></i>
+                                <span>Funcionários</span>
+                            </a>
+                        </li>
+@*                <li class="sub-menu">
+                    <a>
+                        <i class="fa fa-folder-open"></i>
+                        <span>Cadastros</span>
+                    </a>
+                    <ul class="sub">
+                        <li class="sub-menu">
+                            <a class="Navegavel" id="/Aluno">
+                                <i class="fa fa-graduation-cap"></i>
+                                <span>Alunos</span>
+                            </a>
+                        </li>
+
+                        <li class="sub-menu">                    
+                            <a class="Navegavel" id="/Curso">
+                                <i class="fa fa-list"></i>
+                                <span>Cursos</span>
+                            </a>                                                
+                        </li>    
+                                            
+                        <li class="sub-menu">
+                            <a class="Navegavel" id="/Disciplina">
+                                <i class="fa fa-bars"></i>
+                                <span>Disciplinas</span>
+                            </a>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a class="Navegavel" id="/Professor">
+                                <i class="fa fa-folder"></i>
+                                <span>Professores</span>
+                            </a>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a class="Navegavel" id="/FuncionarioAcademico">
+                                <i class="fa fa-group"></i>
+                                <span>Funcionários</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>*@
+
+@*                <li class="sub-menu">
+                    <a>
+                        <i class="fa fa-folder"></i>
+                        <span>Cadastro via Excel</span>
+                    </a>
+                    <ul class="sub">
+                        <li class="sub-menu">
+                            <a class="Navegavel" id="/ProcessadorDeExcel">
+                                <i class="fa fa-graduation-cap""></i>
+                                <span>Alunos</span>
+                            </a>
+                        </li>                        
+                    </ul>
+                </li>*@
+
+@*                <li class="sub-menu">
+                    <a class="Navegavel" id="/ProcessadorDeExcel">
+                    <i class="fa fa-graduation-cap""></i>
+                    <span>Cadastro via Excel</span>
+                    </a>    
+                 </li>*@
+                <li class="sub-menu">
+                    <a class="Navegavel" id="/Acesso/Acessos">
+                        <i class="fa fa-unlock"></i>
+                        <span>Acessos</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+    MAIN CONTENT
+    *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper" id="contentPage">
+            @RenderBody()
+        </section>
+    </section>
+
+    <!--main content end-->
+    <!--footer start-->
+    <!--footer end-->
+    </section>
+
+
+
+
+
+
+</body>
+</html>
+ <!-- js placed at the end of the document so the pages load faster -->
+<script src="~/Content/DashGum/js/jquery.js"></script>
+<script src="~/Content/DashGum/js/jquery-1.8.3.min.js"></script>
+<script src="~/Content/DashGum/js/bootstrap.min.js"></script>
+<script class="include" type="text/javascript" src="~/Content/DashGum/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="~/Content/DashGum/js/jquery.scrollTo.min.js"></script>
+<script src="~/Content/DashGum/js/jquery.nicescroll.js" type="text/javascript"></script>
+<script src="~/Content/DashGum/js/jquery.sparkline.js"></script>
+<script src="~/Content/DashGum/js/awesomplete.js"></script>
+
+
+<!--common script for all pages-->
+<script src="~/Content/DashGum/js/common-scripts.js"></script>
+<script src="~/Scripts/Generic/genericScripts.js"></script>
+
+<script type="text/javascript" src="~/Content/DashGum/js/gritter/js/jquery.gritter.js"></script>
+<script type="text/javascript" src="~/Content/DashGum/js/gritter-conf.js"></script>
+
+<!--script for this page-->
+<script src="~/Content/DashGum/js/sparkline-chart.js"></script>
+<script src="~/Content/DashGum/js/zabuto_calendar.js"></script>
+
+
+<!-- js placed at the end of the document so the pages load faster -->
+<!--common script for all pages-->
+<!--script for this page-->
+<script src="~/Content/DashGum/js/chart-master/Chart.js"></script>
+@*<script src="~/Content/DashGum/js/chartjs-conf.js"></script>*@
+
+<script>
+
+    $(document).ready(function () {
+        $("#date-popover").popover({ html: true, trigger: "manual" });
+        $("#date-popover").hide();
+        $("#date-popover").click(function (e) {
+            $(this).hide();
+        });
+
+        $("#my-calendar").zabuto_calendar({
+            action: function () {
+                return myDateFunction(this.id, false);
+            },
+            action_nav: function () {
+                return myNavFunction(this.id);
+            },
+            ajax: {
+                url: "show_data.php?action=1",
+                modal: true
+            },
+            legend: [
+                { type: "text", label: "Special event", badge: "00" },
+                { type: "block", label: "Regular event", }
+            ]
+        });
+    });
+
+    $(".Navegavel").mousedown(function (event) {
+        var id = $(this).attr('id');
+        switch (event.which) {
+            case 1:
+                //alert('Left mouse button pressed ' + id);
+                window.location.href = id;
+
+                break;
+            case 2:
+                //alert('Middle mouse button pressed ' + id);
+                window.open(id, '_blank');
+
+                break;
+            case 3:
+                //alert('Right mouse button pressed ' + id);
+
+                break;
+            default:
+                //alert('You have a strange mouse');                    
+                break;
+        }
+    });
+
+
+    function myNavFunction(id) {
+        $("#date-popover").hide();
+        var nav = $("#" + id).data("navigation");
+        var to = $("#" + id).data("to");
+        console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+    }
+
+    var open = false;
+
+    $("#btnExitSession").click(function (e) {
+        debugger;
+        $.ajax(
+        {
+            type: 'POST',
+            url: '/Acesso/Logoff',
+            success: function (data) {
+                RedirectTo('\Acesso');
+            }
+        });
+    });
+
+    $(function () {
+        $(".infoAccount").hide();
+    });
+
+    $(function () {
+
+        $.ajax(
+        {
+            type: 'POST',
+            url: '/Acesso/MostrarInfosDoUsuario',
+            success: function (data) {
+                $('#txtUsuarioLogado').text(data.Usuario);
+                $('#txtUsuarioHidden').text(data.Id);
+                $('#txtTipo').text(data.Tipo);
+                $('#txtTipoHidden').text(data.TipoValue);
+            }
+        });
+    });
+
+    $(".ViewReq").click(function () {
+
+        var Request = $(this).context.dataset.class;
+        $.ajax({
+            type: "GET",
+            url: '/Requerimento/' + Request,
+            data: { pagina: 1 },
+            success: function (data) {
+                $('#contentPage').html(data);
+            }
+        });
+    });
+
+    $(".GoToChart").click(function () {
+
+
+        $.ajax({
+            type: "GET",
+            url: '/Dashboard/QuantidadePorTipo',
+            success: function (data) {
+                $('#contentPage').html(data);
+            }
+        });
+    });
+
+
+
+    $(".redirectView").click(function (e) {
+        RedirectTo('\\');
+    });
+
+</script>

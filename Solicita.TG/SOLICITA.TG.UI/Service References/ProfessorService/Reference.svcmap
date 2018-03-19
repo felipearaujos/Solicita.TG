@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bacfd60d-4026-423d-b0e7-e8019f94b013" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Professor/ProfessorService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="200dd226-7658-4902-9f79-3cc342fad310" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Professor/ProfessorService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="19563a7b-66b4-45db-b4e9-c214aa1c72ba" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Professor/ProfessorService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="898ae8b8-c481-44f2-b3cf-e099f17e2166" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Professor/ProfessorService/mex" />
+    <MetadataFile FileName="Solicita.TG.Servi%C3%A7os.xsd" MetadataType="Schema" ID="cafe5054-7afb-4245-ac30-3b6c264e45d9" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Professor/ProfessorService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="3e8b511c-f836-4ee9-b79b-a82853e49611" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Professor/ProfessorService/mex" />
+    <MetadataFile FileName="Solicita.TG.Servi%C3%A7os.Professor.Modelos.xsd" MetadataType="Schema" ID="81776305-3de0-4404-8715-7b05f51b0d7c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Professor/ProfessorService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

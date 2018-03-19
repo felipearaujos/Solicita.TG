@@ -1,0 +1,77 @@
+﻿@model List<Solicita.TG.UI.View.RequerimentoService.RequerimentoSimplesModel>
+
+<link href="~/Content/DashGum/style.css" rel="stylesheet">
+<link href="~/Content/DashGum/style-responsive.css" rel="stylesheet">
+<link href="~/Content/toastr.css" rel="stylesheet">
+
+<h3><i class="fa fa-angle-right"></i> REQUERIMENTOS DIRECIONADOS </h3>
+<div class="row">
+    <div class="col-md-12 mt">
+        <div class="content-panel">
+            <form class="form-inline padding15">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="ALUNO">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="STATUS">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="DATA DE ABERTURA">
+                </div>
+                <button type="button" class="btn btn-danger">FILTRAR</button>
+
+                <button type="button" id="createTrancamentoDeCurso" data-toggle="modal" data-target="#myModal" class="btn btn-danger pull-right">CADASTRAR NOVO REQUERIMENTO</button>
+            </form>
+            <br />
+            <table id="tblAluno" class="table table-hover">
+                <h4><i class="fa fa-angle-right"></i> ALUNOS CADASTRADOS </h4>
+                <hr>
+                <thead>
+                    <tr>
+                        <th>ALUNO</th>
+                        <th>DATA DE ABERTURA</th>
+                        <th>DATA DE TÉRMINO</th>
+                        <th>STATUS</th>
+                        <th>RESPONSÁVEL</th>
+                        <th>EDITAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var umReq in Model)
+                    {
+                        <tr>
+                            <td>
+                                @umReq.Aluno
+                            </td>
+                            <td>
+                                @umReq.DataAbertura
+                            </td>
+                            <td>
+                                @umReq.DataTermino
+                            </td>
+                            <td>
+                                @umReq.Status
+                            </td>
+                            <td>
+                                @umReq.Responsavel
+                            </td>
+                            <td>
+                                <div>
+                                    <i class="fa fa-pencil-square btnEditar" aria-hidden="true"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="~/Content/DashGum/js/jquery.js"></script>
+    <script type="text/javascript" src="~/Scripts/Generic/genericScripts.js"></script>
+    <script type="text/javascript" src="~/Content/DashGum/js/jquery.backstretch.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/toastr.js"></script>
+
+    <script>
+
+    </script>

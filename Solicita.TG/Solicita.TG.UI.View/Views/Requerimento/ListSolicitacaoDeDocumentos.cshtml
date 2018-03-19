@@ -1,0 +1,441 @@
+﻿@model List<Solicita.TG.UI.View.RequerimentoService.RequerimentoSimplesModel>
+
+<link href="~/Content/DashGum/style.css" rel="stylesheet">
+<link href="~/Content/DashGum/style-responsive.css" rel="stylesheet">
+<link href="~/Content/toastr.css" rel="stylesheet">
+
+<h3><i class="fa fa-angle-right"></i>SOLICITAÇÕES DE DOCUMENTOS </h3>
+<div class="row">
+    <div class="col-md-12 mt">
+        <div class="content-panel">
+            <form class="form-inline padding15">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="ALUNO">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="STATUS">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="DATA DE ABERTURA">
+                </div>
+                <button type="button" class="btn btn-danger">FILTRAR</button>
+
+                <button type="button" id="createTrancamentoDeCurso" data-toggle="modal" data-target="#myModal" class="btn btn-danger pull-right">CADASTRAR NOVO REQUERIMENTO</button>
+            </form>
+            <br />
+            <table id="tblAluno" class="table table-hover">
+                <h4><i class="fa fa-angle-right"></i>ALUNOS CADASTRADOS </h4>
+                <hr>
+                <thead>
+                    <tr>
+                        <th>ALUNO</th>
+                        <th>DATA DE ABERTURA</th>
+                        <th>DATA DE TÉRMINO</th>
+                        <th>STATUS</th>
+                        <th>RESPONSÁVEL</th>
+                        <th>EDITAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var umReq in Model)
+                    {
+                        <tr>
+                            <td>
+                                @umReq.Aluno
+                            </td>
+                            <td>
+                                @umReq.DataAbertura
+                            </td>
+                            <td>
+                                @umReq.DataTermino
+                            </td>
+                            <td>
+                                @umReq.Status
+                            </td>
+                            <td>
+                                @umReq.Responsavel
+                            </td>
+                            <td>
+                                <div>
+                                    <i class="fa fa-pencil-square btnEditar" id="@umReq.Id" aria-hidden="true"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr style="color:black">
+                        <td>
+
+                            @if (@Model.Count() > 0)
+                            {
+                                <i id="paginaAtual">@Model[0].PaginaAtual </i> 
+                                <i>de </i>
+                                <i id="numeroPaginas">@Model[0].NumeroPaginas</i>
+                            }
+                        </td>
+
+                        <td colspan="3">
+                            <i class="page-number-first"><< </i>
+                            <i class="page-number-back"><-</i>
+                            @if (@Model.Count() > 1)
+                            {
+                                if (!@Model[0].PaginaAtual.Equals(Model[0].NumeroPaginas))
+                                {
+                                    <i class="page-number-next">-></i>
+                                    <i class="page-number-last">>>  </i>
+                                }
+                            }
+
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Nova solicitação de documentos</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="row mt">
+                        <div class="col-lg-12">
+                            <div class="form-panel">
+                                <form id="searchForm" class="form-horizontal style-form">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">RA do Aluno</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" id="txtRA" class="form-control">
+                                            <input type="hidden" id="RAHidden" />
+                                            <input type="hidden" id="IdAlunoHidden" />
+                                            <span class="help-block">Insira o RA para o restante dos dados serem preenchidos.</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label">RG</label>
+                                        <div class="col-lg-10">
+                                            <p class="form-control-static" id="txtRG"></p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label">Nome</label>
+                                        <div class="col-lg-10">
+                                            <p class="form-control-static" id="txtNome"></p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-sm-2 control-label">Sobrenome</label>
+                                        <div class="col-lg-10">
+                                            <p class="form-control-static" id="txtSobrenome"></p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Tipo de solicitação</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" id="txtTipoDeDocumento">
+                                                <option value="1">Atestado de Matrícula</option>
+                                                <option value="2">Atestado de Período</option>
+                                                <option value="3">Atestado de Disciplina</option>
+                                                <option value="4">Histórico Escolar</option>
+                                                <option value="4">Atestado de Frequência</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Motivo</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" id="txtTipoMotivo">
+                                                <option value="3">Comprovação de matrícula</option>
+                                                <option value="1">Trabalho</option>
+                                                <option value="2">Outros cursos</option>
+                                                <option value="3">Compromisso médico</option>
+                                                <option value="4">Outros</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Detalhes sobre o Motivo</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" id="txtMotivoEspecificado" class="form-control">
+                                            <span class="help-block">Insira detalhes sobre o motivo.</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Período Atual</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="chkInformarPeriodo" value="option1">
+                                                Marque caso queira que o período atual saia no atestado.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Informar disciplina</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline">
+                                                <input id="txtDisciplinaInformada" class="form-control">
+                                                <input type="hidden" id="txtDisciplinaInformadaId" class="form-control">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Frequência na disciplina</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="chkInformarDisciplina" value="option1">
+                                                Marque caso queira que a seja informada a frequência da disciplina escolhida no atestado.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Semestre Atual</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="chkInformarSemestreAtual" value="option1">
+                                                Marque caso queira que o semestre atual saia no atestado.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Carga Horária</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="chkInformarCargaHoraria" value="option1">
+                                                Marque caso queira que a carga horária saia no atestado.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Previsão de conclusão do curso</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="chkInformarPrevisaoDeConclusao" value="option1">
+                                                Marque caso queira que a previsão de conclusão do curso saia no atestado.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Aula aos Sábados</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="chkInformarAulaAosSabados" value="option1">
+                                                Marque caso queira que a informar que cursa aulas na faculdade aos sábados no atestado.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- col-lg-12-->
+                    </div>
+                    <!-- /row -->
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnFechar" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="button" id="btnSalvar" class="btn btn-danger">Criar Requerimento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Content/DashGum/js/jquery.js"></script>
+    <script type="text/javascript" src="~/Scripts/Generic/genericScripts.js"></script>
+    <script type="text/javascript" src="~/Content/DashGum/js/jquery.backstretch.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/toastr.js"></script>
+
+    <script>
+
+        $(".btnEditar").click(function (e) {
+            debugger;
+            $.ajax(
+                {
+                    type: 'POST',
+                    url: '/Requerimento/EditSolicitacaoDeDocumentos',
+                    data: { id: e.target.getAttribute("id") },
+                    success: function (data) {
+                        debugger;
+                        $('#btnFechar').click();
+                        $('#contentPage').html(data);
+                    },
+                    error: function (data) {
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeEasing = 'swing';
+                        toastr.options.closeButton = true;
+                        toastr.options.preventDuplicates = true;
+                        toastr.error("Erro ao criar requerimento", "Requerimento não criado!");
+                    }
+                });
+        });
+
+        $("#btnSalvar").click(function () {
+            
+
+            var disciplinaInformada = $("#txtDisciplinaInformadaId").val();
+
+            if ($("#txtDisciplinaInformadaId").val() == undefined || $("#txtDisciplinaInformadaId").val() == '' || $("#txtDisciplinaInformadaId").val() == null)
+                disciplinaInformada = '00000000-0000-0000-0000-000000000000';
+
+            var request = {
+                IdAluno: $("#IdAlunoHidden").text(), TipoDoMotivo: $("#txtTipoMotivo").val(), TipoDeDocumento: $("#txtTipoDeDocumento").val(), EspecificacaoDoMotivo: $("#txtMotivoEspecificado").val(),
+                InformarSemestreAtual: $("#chkInformarSemestreAtual").is(':checked'), InformarCargaHoraria: $("#chkInformarCargaHoraria").is(':checked'),
+                InformarAulaAosSabados: $("#chkInformarAulaAosSabados").is(':checked'), InformarPrevisaoDeConclusao: $("#chkInformarPrevisaoDeConclusao").is(':checked'),
+                InformarDisciplina: $("#chkInformarDisciplina").is(':checked'), InformarPeriodo: $("#chkInformarPeriodo").is(':checked'), DisciplinaInformada: disciplinaInformada
+            };
+
+            $.ajax(
+                {
+                    type: 'POST',
+                    url: '/Requerimento/CriarSolicitacaoDeDocumentos',
+                    data: request,
+                    success: function (data) {
+                        
+                        $('#btnFechar').click();
+                        $('#contentPage').html(data);
+                    },
+                    error: function (data) {
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeEasing = 'swing';
+                        toastr.options.closeButton = true;
+                        toastr.options.preventDuplicates = true;
+                        toastr.error("Erro ao criar requerimento", "Requerimento não criado!");
+                    }
+                });
+        });
+
+        $("#searchForm").submit(function () {
+            return false;
+        });
+
+        function checkLetterAndShowMessage(letter) {
+            if (letter == 13) {
+                $.ajax(
+                {
+                    type: 'GET',
+                    url: '/Requerimento/ListarAlunos',
+                    data: { RA: $('#txtRA').val() },
+                    success: function (data) {
+                        if (data.Nome === '') {
+                            toastr.options.closeMethod = 'fadeOut';
+                            toastr.options.closeEasing = 'swing';
+                            toastr.options.closeButton = true;
+                            toastr.options.preventDuplicates = true;
+                            toastr.error('Verifique o Código do RA.', 'Aluno não encontrado');
+                        }
+                        else {
+                            $("#txtNome").text(data.Nome);
+                            $("#IdAlunoHidden").text(data.Id);
+                            $("#txtSobrenome").text(data.Sobrenome);
+                            $("#txtRG").text(data.RG);
+                        }
+                    }
+                });
+            }
+        }
+
+
+        $('#txtRA').keypress(function (e) {
+            debugger;
+            checkLetterAndShowMessage(e.which);
+        });
+
+
+        function ListDisciplinas() {
+            GetItems();
+            debugger;
+
+        }
+
+        $(document).ready(function (e) {
+
+            ListDisciplinas();
+        });
+
+        function GetItems() {
+            $.ajax({
+                type: 'POST',
+                url: '/Disciplina/ListarPorNome',
+                data: { term: $("#txtDisciplinaInformada").val() },
+                success: function (data) {
+                    debugger;
+                    var input = document.getElementById("txtDisciplinaInformada");
+
+                    // Show label but insert value into the input:
+                    new Awesomplete(input, {
+                        list: data
+                    });
+
+                    Awesomplete.$.bind(input, {
+                        "awesomplete-selectcomplete": function (evt) {
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Disciplina/GetIdPorNome',
+                                data: { nome: $("#txtDisciplinaInformada").val() },
+                                success: function (data) {
+                                    $("#txtDisciplinaInformadaId").val(data);
+                                }
+                            });
+                        }
+                    });
+
+
+                }
+            });
+        }
+
+        function changePage(page) {            
+            $.ajax({
+                type: "GET",
+                url: '/Requerimento/ListarSolicitacaoDeDocumentos',
+                data: { pagina: page },
+                success: function (data) {
+                    $('#contentPage').html(data);
+                }
+            });
+        };
+
+        $(".page-number-last").click(function (e) {
+            var page = parseInt($("#numeroPaginas").html().trim());
+
+            changePage(page);
+        });
+
+        $(".page-number-next").click(function (e) {
+
+            var page = parseInt($("#paginaAtual").html().trim());
+
+            page = page + 1;
+
+            changePage(page);
+        });
+
+        $(".page-number-first").click(function (e) {
+            var txtRazaoSocial = $("#txtRazaoSocial").val();
+            var txtNomeFantasia = $("#txtNomeFantasia").val();
+            var txtCnpj = $("#txtCNPJ").val();
+
+            changePage(1);
+        });
+
+        $(".page-number-back").click(function (e) {
+
+            var page = parseInt($("#paginaAtual").html().trim());
+
+            page = page - 1;
+
+            if (page == 0)
+                return;
+
+            changePage(page);
+        });
+
+
+    </script>

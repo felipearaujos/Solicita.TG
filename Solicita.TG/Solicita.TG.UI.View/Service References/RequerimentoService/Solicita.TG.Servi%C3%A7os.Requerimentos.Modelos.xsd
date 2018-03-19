@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Aluno.Modelos" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfMotivoModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MotivoModel" nillable="true" type="tns:MotivoModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMotivoModel" nillable="true" type="tns:ArrayOfMotivoModel" />
+  <xs:complexType name="MotivoModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MotivoModel" nillable="true" type="tns:MotivoModel" />
+  <xs:complexType name="ArrayOfTiposRequerimentoModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TiposRequerimentoModel" nillable="true" type="tns:TiposRequerimentoModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTiposRequerimentoModel" nillable="true" type="tns:ArrayOfTiposRequerimentoModel" />
+  <xs:complexType name="TiposRequerimentoModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Identificador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TiposRequerimentoModel" nillable="true" type="tns:TiposRequerimentoModel" />
+  <xs:complexType name="SolicitacaoDeDocumentosModel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequerimentoModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DisciplinaInformada" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InformarAulaAosSabados" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InformarCargaHorária" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InformarDisciplina" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InformarPeriodo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InformarPrevisãoDeConclusão" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InformarSemestreAtual" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MotivoEspecificado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipoDeMotivo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SolicitacaoDeDocumentosModel" nillable="true" type="tns:SolicitacaoDeDocumentosModel" />
+  <xs:complexType name="RequerimentoModel">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Aluno.Modelos" minOccurs="0" name="Aluno" nillable="true" type="q1:AlunoModel" />
+      <xs:element minOccurs="0" name="DataAbertura" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataPrevistaTermino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HistoricoDeStatus" nillable="true" type="tns:ArrayOfStatusModel" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="StatusAtual" nillable="true" type="tns:StatusModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequerimentoModel" nillable="true" type="tns:RequerimentoModel" />
+  <xs:complexType name="ArrayOfStatusModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StatusModel" nillable="true" type="tns:StatusModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStatusModel" nillable="true" type="tns:ArrayOfStatusModel" />
+  <xs:complexType name="StatusModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataEntrada" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataSaida" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Observação" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Responsável" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatusNome" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatusModel" nillable="true" type="tns:StatusModel" />
+  <xs:complexType name="ArrayOfRequerimentoSimplesModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequerimentoSimplesModel" nillable="true" type="tns:RequerimentoSimplesModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequerimentoSimplesModel" nillable="true" type="tns:ArrayOfRequerimentoSimplesModel" />
+  <xs:complexType name="RequerimentoSimplesModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aluno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataAbertura" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataTermino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="NumeroPaginas" type="xs:int" />
+      <xs:element minOccurs="0" name="PaginaAtual" type="xs:int" />
+      <xs:element minOccurs="0" name="Responsavel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequerimentoSimplesModel" nillable="true" type="tns:RequerimentoSimplesModel" />
+  <xs:complexType name="ArrayOfSolicitacaoDeDocumentosModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SolicitacaoDeDocumentosModel" nillable="true" type="tns:SolicitacaoDeDocumentosModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSolicitacaoDeDocumentosModel" nillable="true" type="tns:ArrayOfSolicitacaoDeDocumentosModel" />
+  <xs:complexType name="ArrayOfTipoDeStatusModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoDeStatusModel" nillable="true" type="tns:TipoDeStatusModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoDeStatusModel" nillable="true" type="tns:ArrayOfTipoDeStatusModel" />
+  <xs:complexType name="TipoDeStatusModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoDeStatusModel" nillable="true" type="tns:TipoDeStatusModel" />
+</xs:schema>

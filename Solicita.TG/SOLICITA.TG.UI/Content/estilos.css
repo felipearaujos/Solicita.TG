@@ -1,0 +1,1040 @@
+/* Base HTML */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-family: 'robotothin';
+	vertical-align: baseline;
+}
+
+.padding0 {
+	padding: 0px;
+}
+
+
+.columntitle{
+	padding-top: 5px;
+	text-align: center;
+	background-color: #21DDDA;
+	height: 40px;
+}
+
+.columntitle p{
+	padding-top: 8px;	
+}
+
+.ticket {
+	background-color: #e7e7e7;
+	padding: 5px;
+	margin: 10px 0;
+}
+
+.pedido h2{
+	color: #6699cc;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+
+.pedidoColuna {
+    z-index:24;
+	font-weight:600;
+	background-color: #e7e7e7;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.pedidoTabs {
+	margin-bottom: 10px;
+}
+
+.pedidoColuna .itensTitle{
+	font-size:12px;
+	padding:5px 25px 15px 5px;
+}
+
+.itemPedido {
+	font-weight:600;
+	color:black;
+	padding: 5px;
+	margin-bottom: 6px;
+	font-size:12px;
+	background-color:#d1d1d1;
+	position: relative;
+    display: inline-block;
+}
+
+.itemPedido .tagLeft {
+    visibility: hidden;
+    width: 120px;
+    background-color: #666666;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+    /* Position the tooltip */
+	top:120%;
+    position: absolute;
+    z-index: 1;
+    right: 25px;
+}
+
+.itemPedido .tagRight {
+    visibility: hidden;
+    width: 150px;
+    background-color: #d1d1d1;
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    /* Position the tooltip */
+	top:0px;
+    position: absolute;
+    z-index: 1;
+    left: 83%;
+}
+
+
+.itemPedido .tagLeft::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+  border-color: transparent transparent #666666 transparent;
+}
+
+.itemPedido:hover .tagLeft{
+    visibility: visible;
+}
+
+.itemPedido:hover .tagRight{
+    visibility: visible;
+}
+
+.itemDestaque3{
+	border-left-style: solid;
+	border-left-width:3px;
+	border-left-color:#C32123;
+	padding-left:2px;
+}
+
+.itemDestaque2{
+	border-left-style: solid;
+	border-left-width:3px;
+	border-left-color:#D97120;
+	padding-left:2px;
+}
+
+.itemDestaque1{
+	border-left-style: solid;
+	border-left-width: 3px;
+	border-left-color:#C3BD30;
+	padding-left:2px;
+}
+
+.pedidoColuna .itensTotal{
+	line-height: 18px;
+	font-weight: 800;
+	color:white;
+	background-color:#666666;
+	padding:4px;
+}
+
+.listaItensResumo::-webkit-scrollbar {
+    width: 12px;
+}
+
+.listaItensResumido{
+	max-height:380px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+
+.listaProdutosEObjetos {
+    width: 50%; 
+    max-height:380px; 
+    overflow-y:scroll; 
+    overflow-x:hidden;
+}
+
+.listaItensDetalhado {
+	max-height:490px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+
+.pedidoColuna title{
+	font-size:14px;
+}
+
+.pedidoColuna input[type='text'] {
+    color: black;
+	font-size: 12px;
+	height: 22px;
+	width: 38px;
+	padding: 0px;
+}
+
+.pedidoColuna .itemPedido input[type='text'] {
+      height: 16px;
+      margin: -2px 0 -2px 0;
+}
+
+.itemPedido .item {
+    background: #f2f2f2;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 3px 0;
+    padding: 10px;
+}
+
+.btnPedido{
+	color: #FFFFFF;
+	background-color: #91c1eb;
+	height: 80px;
+	padding:20px 5px 5px 5px;
+	}
+
+.btnPedido p{
+	vertical-align: middle;
+	text-align:center;
+}
+
+input, select {
+    padding: 5px;
+    line-height: normal;
+    width: 100%;
+    max-width: 100%;
+}
+
+input[type='radio'] {
+    max-width: initial;
+    width: 13px;
+    height: 13px;
+}
+
+body {
+  padding-top: 75px;
+}
+
+/* Fim Base HTML */
+
+/* Posicional */
+
+.noMinHeight {
+    min-height: 0px;
+}
+
+.navBarMessages {
+    padding: 5px;
+}
+
+.navBarPadding {
+    padding: 5px 0;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.paddingTile {
+    padding: 6px 6px;
+}
+
+body .container {
+    width: 1250px;
+    line-height: 1;
+}
+
+/* Fim Posicional */
+
+
+/* Gráficos */
+
+body h1 {
+    font-size: 50px;
+    margin-left: 3px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    color: #91c1eb;
+}
+
+body h1 i {
+    margin-right: 10px;
+}
+
+body h2 {
+    font-size: 25px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    color: #91c1eb;
+    display: inline-block;
+}
+
+body h4 {
+    font-weight: bold;
+}
+
+.standardMargin {
+    margin: 5px 0 10px 0;
+}
+
+.cadastro h2 {
+    margin-left: 0px;
+}
+
+.row.noMargin {
+    margin: 0 0 0 0;
+}
+
+body table {
+    width:100%;
+    display: table;
+    word-wrap: break-word;
+}
+
+.first{
+	padding-left: 0;
+    padding-right: 5px;
+}
+
+.middle{
+	padding: 0 5px 0 5px;
+}
+
+.last{
+	padding-right: 0;
+	padding-left: 5px;
+}
+
+table thead tr th {
+    font-size:14px;
+    background-color: #3D87C8;
+    padding: 5px;
+    color: #FFFFFF;
+}
+
+table tbody tr td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+tr {
+    display: table-row;
+}
+
+tbody tr:hover {
+    background: #f5f5f5;
+}
+
+td, th {
+    display: table-cell;
+}
+
+td, tr {
+    border-bottom: 1px solid #BBB;
+}
+
+.filtros {
+    margin: 0 0 15px 0;
+}
+
+.cadastro label {
+    width: 100%;
+    font-size: 18px;
+    color: #919191;
+    font-weight: normal;
+}
+
+.cadastro label input, .cadastro label select {
+    vertical-align: middle;
+    margin-top: 5px;
+    width: 100%;
+    border: 1px solid #91c1eb;
+    margin-bottom: 10px;
+    font-family: 'robotothin';
+    color: #919191;
+    font-size: 16px;    
+}
+
+.cadastro label input[type='checkbox'] {  
+    width: 15px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background: #91c1eb;
+    font-family: 'robotothin';
+    vertical-align: baseline;
+}
+
+.button.right {
+    margin-left: 5px;
+}
+
+.button.left {
+    margin-right: 5px;
+}
+
+.link {
+    font-size: 25px;
+    text-decoration: none;
+    color: #91c1eb;
+}
+
+.link:hover {
+    text-decoration: none;
+    color: #0066CC;
+}
+
+.siteHeader {
+    font-family: 'robotomedium';
+}
+
+.mainBackground {
+    background: #3F4547;
+}
+
+.secondBackground {
+    background: #808080;
+}
+
+.focusBackground {
+    background: #0066CC;
+}
+
+.greyBackground {
+    background: #919191;
+}
+
+.whiteBackground {
+    background: #FFFFFF;
+}
+
+.mainColor {
+    color: #91c1eb;
+}
+
+.secondColor {
+    color: #3D87C8;
+}
+
+.focusColor {
+    color: #0066CC;
+}
+
+.greyColor {
+    color: #919191;
+}
+
+.whiteColor {
+    color: #FFFFFF;
+}
+
+.logoLiera {
+    background: url(/images/logo-liera.png) no-repeat;
+    min-height: 43px;
+}
+
+.liveTile {
+    color: #FFFFFF;
+    height: 195px;
+    padding: 40px 20px 15px 20px;
+    text-align:center;
+}
+
+.liveTile p {
+    display: block;
+    width: 155px;
+    text-align: left;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 20px;
+    font-family: robotothin;
+    font-weight: bold;
+}
+
+.liveTile.bigTile {
+    padding: 20px 20px 15px 20px;
+    text-align: right;
+}
+
+.liveTile.bigTile small{
+    color: #FFFFFF;
+    font-size: 15px;
+    display: block;
+}
+
+.liveTile.bigTile h2 {
+    color: #ffffff;
+    font-size: 29px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    text-align: left;
+}
+
+.liveTile.bigTile span {
+    display: block;
+    color: #fff;
+    float: right;
+    font-size: 50px;
+    margin-top: 0;
+    margin-left: 10px;
+}
+
+.liveTile:hover {
+    background-color:#690316;
+    cursor: pointer;
+}
+
+.liveTile.col-md-4 {
+    background-color: darkgoldenrod;
+}
+
+.msgerro {
+    color: #FF0000;
+}
+
+#loading {
+    display:    none;
+    z-index:    1000;
+    background: url('../../Images/ajax-wait.gif') 
+                15%
+                no-repeat;
+}
+
+.filtroLateral {
+    background-color: #91c1eb;
+    color: #ffffff;
+    margin-bottom: 15px;
+    padding: 15px 10px 15px 10px;
+}
+
+.filtroLateral label input {
+    width: 100%;
+    color: #919191;
+}
+
+.filtroLateral label input[type='checkbox'] {
+    width: 15px;
+}
+
+.filtroLateral h2 {
+    color: #ffffff;
+    text-align: center;
+    display: block;
+    margin-left: 0px;
+    margin-bottom: 10px;
+}
+
+.filtroLateral .row {
+    margin-bottom: 5px;
+}
+
+.filtroLateral .button {
+    font-size: 18px;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.filtroLateral .button:hover {
+    text-decoration: none;
+}
+
+.boxLateral {
+    background-color: #91c1eb;
+    color: #ffffff;
+    margin-bottom: 15px;
+    padding: 20px 25px 5px 25px;
+}
+
+.boxLateral big {
+    display: inline-block;
+    font-size: 22px;
+    font-family: 'robotomedium';
+    margin-bottom: 20px;
+}
+
+.boxLateral small {
+    display: inline-block;
+    font-size: 15px;
+}
+
+.itemPedido .item {
+    color: #959595;
+    background: #f2f2f2;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 3px 0;
+    padding: 10px;
+}
+
+.itemPedido i {
+    padding-left: 3px;
+}
+
+.itemTotal {
+    background: #959595;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.itemTotal .normal {
+    font-size: 13px;
+}
+
+.itemTotal .extra {
+    font-size: 18px;
+}
+
+.actionButton a {
+    float: left;
+    display:block;
+    padding: 20px 10px 10px 10px;
+    color: #919191;
+    background: #f2f2f2;
+    width: 100%;
+    height: 125.563px;
+    font-family: 'robotobold';
+    font-size: 11px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 10px;    
+}
+
+.actionButton a:hover {    
+    background: #d1d1d1;
+    cursor: pointer;    
+}
+
+.actionButton i {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.actionButton .col-md-4.first {
+    padding-right:6.65px;
+    padding-left: 0;
+}
+
+.actionButton .col-md-4.middle {
+    padding:0 3.325px;
+}
+
+.actionButton .col-md-4.last {
+    padding-left:6.65px;
+    padding-right: 0;
+}
+
+.row .padding0 {
+    padding: 0;
+}
+
+.row .padding5 {
+    padding: 0 5px;
+}
+
+.row .vMargin5 {
+    margin-bottom: 5px;
+}
+
+.pedido .leftColumn {
+    padding-right: 5px;
+}
+
+.pedido .rightColumn {
+    padding-left: 5px;
+}
+
+.dropdown {
+ padding: 5px 5px 1px 5px;
+ min-width: 300px;
+    position: relative;
+    display: inline-block;
+    background-color: #e7e7e7;
+}
+
+.dropdown-content {
+    font-weight: 600;
+    display: none;
+    position: absolute;
+ background-color:#e7e7e7;
+ top:100%;
+ left:0%;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.pedido .searchProduto {
+    background: #91c1eb;
+    padding: 15px 30px 15px 15px;
+}
+
+.pedido .searchProduto input {
+    background: #fff;
+    width: 100%;
+}
+
+.pedido .searchProduto .searchInput {
+}
+
+.pedido .searchProduto .searchOptions {
+    font-size: 15px;
+    font-family: 'robotothin';
+    color: #fff;
+    padding: 7.5px 0 0 10px;
+}
+
+.estoque-table {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.estoque-table th {
+	text-align: center;
+	font-size: 12px;
+}
+.estoque-table th.lote { 
+	font-size: 10px; 
+	background: none; 
+	color: #91c1eb; 
+	vertical-align: bottom; 
+	padding-bottom: 15px;
+}
+.estoque-table th.city span { 
+	display: block; 
+	background: url(../images/bg-city.png) no-repeat center bottom; 
+	color: #fff; 
+	padding: 15px 0 20px 0; 
+	margin: 0 5px;
+	font-size: 14px;
+}
+.estoque-table th.city.cmg,
+.estoque-table th.city.csp,
+.estoque-table th.city.ces,
+.estoque-table th.city.ctagia { width: 200px; }
+.estoque-table p {
+	display: block; 
+	background: #e7e7e7;
+	color: #3D87C8; 
+	padding: 10px 0; 
+	margin: 10px 0 5px 0;
+}
+.estoque-table th p.first {
+	margin-left: 5px;
+}
+.estoque-table th p.last {
+	margin-right: 5px;
+}
+.estoque-table th p.main {margin-right: 5px; margin-left: 5px;}
+
+.estoque-table th p.second,
+.estoque-table td span.second {
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.estoque-table tr {
+    border: 0;
+}
+
+.estoque-table td {
+	text-align: center;
+	font-size: 12px;
+    font-weight:bolder;
+	padding-top: 7px;
+	color: #959595;
+    border: 0;
+    border-bottom: 1px solid #bbb;
+    
+}
+.estoque-table td input { 
+	width: 45px; 
+	padding: 0; 
+	font-size: 12px; 
+	text-align: center; 
+	margin-bottom: 0px;
+	background: #f2f2f2;
+	color: #000;
+    border: 0;
+}
+.estoque-table td.lote-item strong,
+.estoque-table td span,
+.estoque-table td label { display: block; padding: 5px; /*background: #e6e6e6;*/ }
+
+.estoque-table td.lote-item strong { background: #d5d5d5; color:#3D87C8; }
+.estoque-table td span { padding: 9px 5px 7px 5px; }
+.estoque-table td span.first { margin-left: 5px; }
+.estoque-table td label.last { margin-right: 5px; }
+
+.estoque-table td span.second { padding: 9px 5px 7px 5px; }
+
+.search-table .button {
+    font-size: 12px;
+}
+
+.pedidoButton{
+	text-align: center;
+	height: 86px;
+	cursor:pointer;
+	margin-bottom: 10px;
+	padding-top: 12px;
+}
+
+.pedidoButton.btnDetalhes{
+	height: 74px;
+	font-size: 15px;
+}
+
+.buttonContent{
+	display: block;
+}
+
+.pedidoButton:hover {
+	background-color: #6699cc;
+}
+
+.btnFirst {
+	margin-right: 5px;
+}
+
+.btnMiddle {
+	margin: 0 5px;
+}
+
+.btnLast{
+	margin-left: 5px;
+}
+
+.pedidoButton i{
+	font-size: 30px;
+}
+
+.pedidoGuia {
+	padding:13px 0;
+	text-align: center;
+	height: 40px;
+	cursor:pointer;
+}
+
+.pedidoGuia:hover{
+	background-color: #6699cc;
+}
+
+.pedidoBusca{
+	background-color: #e7e7e7;
+	margin: 0 0 10px 0;
+	padding: 10px;
+}
+
+.pedidoBusca input[type='radio'] {  
+    width: 15px;
+}
+
+.pedidoBusca input, select {
+	padding: 8px;
+}
+
+.pedidoHover{
+	text-align:center;
+	position:relative;
+	background-color: #e7e7e7;
+	height: 45px;
+	padding: 10px 10px 10px 0;
+	overflow:hidden;
+	font-size: 16px;
+	}
+
+.pedidoHover:hover{
+	z-index:100;
+	overflow:visible;
+	background-color: #e7e7e7;
+}
+
+.pedidoHover:hover .inner{
+	z-index:100;
+}
+
+.inner{
+position: absolute;
+background: #e7e7e7;
+height: auto;
+}
+
+
+.pedidoTag {
+	font-weight:700;
+	padding: 10px 0 0 0;
+	text-align:center;
+	height:35px;
+	width:35;
+	margin-bottom:10px;
+}
+.pedidoTable table{
+    border-collapse: collapse;
+    width: 100%;
+	margin-bottom:10px;
+	font-weight:600
+}
+
+.pedidoTable th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+.pedidoTable tr:nth-child(even){background-color: #f2f2f2}
+
+.pedidoTable th {
+    background-color: #91c1eb;
+    color: white;
+}
+
+.tableCatalogo td:hover{
+	background-color: #91c1eb;
+}
+
+.pedido .grey .box {
+    background: #959595;
+    color: #ffffff;
+}
+
+.pedido .grey input, select {
+    color: #959595;
+}
+
+.pedido .grey .button {
+    background: #959595;
+}
+
+.pedido .blue .box {
+    background: #91c1eb;
+    color: #ffffff;
+}
+
+.pedido .blue input, select {
+    color: #959595;
+}
+
+.pedido .rightCol h2 {
+    margin-left: 0;
+}
+
+.pedido .rightCol .box {    
+    width: 100%;
+    padding: 15px;
+}
+
+.pedido .rightCol .box input, select {
+    width: 100%;
+}
+
+.pedido .rightCol .box label {
+    display: block;
+    overflow: hidden;
+}
+
+.pedido .rightCol .first {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+.pedido .rightCol .middle {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.pedido .rightCol .last {
+    padding-left: 5px;
+    padding-right: 0;
+}
+
+.pedido .rightCol .button {
+    width: 100%;
+    text-align: center;
+}
+
+.button.small {
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+/* Fim Gráficos */
+
+/* Dialog */
+
+.lieraDialog .ui-widget-header {
+    border: 1px solid #91c1eb;
+    background: #91c1eb;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.lieraDialog .ui-state-default .ui-icon {
+    background-image: none;
+}
+
+.lieraDialog .ui-corner-all {
+    border-radius: 0px;
+}
+
+.lieraDialog.ui-dialog {
+    padding: 0;
+    overflow: visible;
+}
+
+.lieraDialog.ui-widget-overlay {
+    background: #000000;
+}
+
+.lieraDialog .ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text {
+    padding: 0;
+    text-indent: 0;
+    margin-top: -3.5px;
+
+}
+
+.lieraDialog .ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-dialog-titlebar-close {
+    border: none;
+    background: #91c1eb;
+}
+
+.lieraDialog .closeButton {
+    color: #ffffff;
+}
+
+/* Fim Dialog */
+

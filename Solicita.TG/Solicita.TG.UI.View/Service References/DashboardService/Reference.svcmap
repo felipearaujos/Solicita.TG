@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b2ae5dba-03c9-4e6d-9d69-222eb24f539f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Dashboard/DashboardService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="d97fe28b-264e-4e38-b057-d8e6985986dc" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Dashboard/DashboardService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="45c7ac68-c1cd-4171-a49b-cce780ab1b01" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Dashboard/DashboardService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="e58bf548-793b-482f-867a-fb35f3245b2b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Dashboard/DashboardService/mex" />
+    <MetadataFile FileName="Solicita.TG.Servi%C3%A7os.Dashboard.Modelos.xsd" MetadataType="Schema" ID="f9779217-160f-40d9-b47d-ef549ad7dd3e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Dashboard/DashboardService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="93e0e9e3-a53f-4a4f-9c11-9bf72595de7f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os/Dashboard/DashboardService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

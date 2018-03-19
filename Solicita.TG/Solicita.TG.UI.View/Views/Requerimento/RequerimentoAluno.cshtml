@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "RequerimentoAluno";
+    Layout = "~/Views/Shared/_LayoutAluno.cshtml";
+}
+
+<script>
+
+    //new Chartist.Bar('#chartLinha', {
+    //    labels: ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
+    //    series: [20, 60, 120, 200, 180, 20, 10]
+    //}, {
+    //    distributeSeries: true
+    //});
+
+
+    //var chart = new Chartist.Pie('#chartPizza', {
+    //    series: [10, 20, 55],
+    //    labels: ['Em Andamento', 'Aguardando Aprovação', 'Concluídos']
+    //}, {
+    //    showLabel: true
+    //});
+
+
+    $(document).ready(function () {
+        $(".blackPanel").toggle("slow");
+        $(".blackPanelFit").hide();
+        checkPermissions();
+    });
+
+    $("#fechar").click(function () {
+        $(".blackPanel").toggle("slow");
+        $(".blackPanelFit").toggle("slow");
+    });
+
+    $(".Create").click(function () {
+        $.ajax(
+        {
+            type: 'GET',
+            url: '/Requerimento/CreateRequerimento',
+            dataType: 'html',
+            cache: false,
+            async: true,
+            success: function (data) {
+                $('#dinamicPage').html(data);
+                $("#dinamicPage").toggle("slow");
+            }
+        });
+    });
+
+    $(".ViewReq").click(function () {
+
+        var Request = $(this).context.dataset.class;
+
+        if (Request === 'ListarReqsDeMinhaResponsabilidade') {
+
+            var tipoDeUserLogado = returnTypeAccess();
+
+            $.ajax(
+            {
+                type: 'GET',
+                url: '/Requerimento/' + Request,
+                dataType: 'html',
+                data: { tipoDeUsuario: tipoDeUserLogado },
+                cache: false,
+                async: true,
+                success: function (data) {
+                    $('#dinamicPage').html(data);
+                }
+            });
+        }
+        else {
+
+            $.ajax(
+            {
+                type: 'GET',
+                url: '/Requerimento/' + Request,
+                dataType: 'html',
+                cache: false,
+                async: true,
+                success: function (data) {
+                    $('#dinamicPage').html(data);
+                }
+            });
+        }
+    });
+
+    $("#abrir").click(function () {
+        $(".blackPanel").toggle("slow");
+        $(".blackPanelFit").toggle("slow");
+    });
+
+    $("#solicitacaoDeMatricula").click(function () {
+
+        $.ajax({
+            type: "POST",
+            url: '/Requerimento/SolicitarDeclaclaracao',
+
+            success: function (result) {
+                $("#mainContent").html(result);
+            },
+            error: function (xhr, status, error) {
+                alert("erro");
+            }
+        });
+
+    });
+
+
+</script>

@@ -1,0 +1,54 @@
+﻿@model List<Solicita.TG.UI.View.CursoService.CursoModel>
+<div class="row">
+    <div class="col-md-12 mt">
+        <div class="content-panel">
+            <form class="form-inline padding15" role="form">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="txtNome" placeholder="Pesquisar por Nome">
+                </div>
+                <button type="button" class="btn btn-danger" id="btnFiltrar">FILTRAR</button>
+                <button type="button" class="btn btn-danger pull-right" id="nova">CADASTRAR NOVO CURSO</button>
+            </form>
+            <br />
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Disciplina</th>
+                        <th>Carga Horária</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var obj in Model)
+                    {
+                        <tr>
+                            <td>@obj.Nome </td>
+                            <td>@obj.CargaHoraria</td>
+                            <td>
+                                <div>
+                                    <i class=" btnEditar  pointer fa fa-pencil" aria-hidden="true" id="@obj.Id"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Content/DashGum/js/jquery.js"></script>
+<script>
+
+    $("#nova").click(function (e) {
+        window.location.href = "/Curso/Criar";
+    });
+
+    $(".btnEditar").click(function (e) {
+        e.preventDefault();
+        var p = e.target.getAttribute("id");
+        var url = "/Curso/Editar/" + p;
+        window.location.href = url;
+    });
+
+</script>
+

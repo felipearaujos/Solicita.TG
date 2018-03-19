@@ -1,0 +1,5 @@
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Utils\bin\Debug\Solicita.TG.Utils.dll.config
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Utils\bin\Debug\Solicita.TG.Utils.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Utils\bin\Debug\Solicita.TG.Utils.pdb
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Utils\obj\Debug\Solicita.TG.Utils.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG.Utils\obj\Debug\Solicita.TG.Utils.pdb

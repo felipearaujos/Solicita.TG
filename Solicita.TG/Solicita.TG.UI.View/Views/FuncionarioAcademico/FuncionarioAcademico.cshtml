@@ -1,0 +1,65 @@
+﻿@model Solicita.TG.UI.View.FuncionarioAcademicoService.FuncionarioModel
+
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="form-panel">
+            <h4 class="mb"><i class="fa fa-angle-right"></i> Dados do @Model.Nome @Model.Sobrenome</h4>
+            <form class="form-horizontal style-form">
+                <input type="hidden" id="idField" value="@Model.Id" />
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Nome</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="txtNome" value="@Model.Nome" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Sobrenome</label>
+                    <div class="col-sm-10">
+                        <input type="text"  id="txtSobrenome" value="@Model.Sobrenome"  class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    Tipos
+                    <input class="editInput" type="hidden" id="txtTipo" value="" />
+                    <select class="editInput form-control" id="cmbTipo"></select>
+                </div>
+
+                <div class="form-group" style="padding: 15px 15px 15px 15px;">
+                    <a class="btn btn-danger pull-right" id="btnSalvar" style="margin: 10px 10px 10px 10px;">Confirmar</a>
+                    <a class="btn btn-danger pull-right" style="margin: 10px 10px 10px 10px; ">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div><!-- col-lg-12-->
+</div><!-- /row -->
+
+<script src="~/Content/DashGum/js/jquery.js"></script>
+<script>
+    $(function () {
+        $.getJSON('/FuncionarioAcademico/ListartipoResponsavelJson', function (result) {
+            CreateComboBox('#cmbTipo', '#txtTipo', result);
+        });
+    });
+
+
+    $("#btnSalvar").click(function (e) {
+        alert("rola");
+        $.ajax({
+            type: "POST",
+            url: '/FuncionarioAcademico/Salvar',
+            data: {
+                id: $("#idField").val(),
+                Nome: $("#txtNome").val(),
+                Sobrenome: $("#txtSobrenome").val(),               
+                
+            },
+            success: function (result) {
+                RedirectTo("/FuncionarioAcademico");
+            },
+            error: function (xhr, status, error) {
+                MensagemDeErro(xhr);
+            }
+        });
+    })
+</script>

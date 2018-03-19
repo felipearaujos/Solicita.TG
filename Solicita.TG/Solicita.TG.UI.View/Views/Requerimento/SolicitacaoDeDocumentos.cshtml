@@ -1,0 +1,373 @@
+﻿@model Solicita.TG.UI.View.RequerimentoService.SolicitacaoDeDocumentosModel
+
+
+<script src="~/Content/DashGum/js/jquery.js"></script>
+<script type="text/javascript" src="~/Content/DashGum/js/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="~/Scripts/toastr.js"></script>
+<script type="text/javascript" src="~/Scripts/SolicitacoesDeDocumentos/SolicitacaoDeDocumentos.js"></script>
+<script type="text/javascript" src="~/Scripts/Generic/genericScripts.js"></script>
+
+<input type="hidden" value="@Model.Id" id="hdnId" />
+
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="form-panel">
+            <h4 class="mb" style="color:#A62F00;">  Solicitação de Documentos - Aluno: @Model.Aluno.Nome @Model.Aluno.Sobrenome</h4>
+            <form class="form-horizontal style-form" method="get">
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Nome</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.Aluno.Nome</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Sobrenome</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.Aluno.Sobrenome</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">RG</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.Aluno.RG</p>
+                    </div>
+                </div>
+                <h4 style="color:#A62F00;" class="mb">  Informações da Matrícula</h4>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">RA</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.Aluno.Matricula.RA</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Ano de Ingresso</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.Aluno.Matricula.AnoIngresso</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Período</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.Aluno.Matricula.Periodo</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Turno</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.Aluno.Matricula.Turno</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Carga Horária</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.Aluno.Matricula.CargaHorária Horas</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Curso</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.Aluno.Matricula.Curso</p>
+                    </div>
+                </div>
+                <h4 style="color:#A62F00;" class="mb">  Informações do Requerimento</h4>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Data de Abertura</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.DataAbertura</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Data Prevista de Término</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.DataPrevistaTermino</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Motivo</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.TipoDeMotivo</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Motivo Especificado</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.MotivoEspecificado</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Informar carga horária</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.InformarCargaHorária</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Informar período atual</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.InformarPeriodo</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Informar previsão de conclusão</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.InformarPrevisãoDeConclusão</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Informar disciplina</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.InformarDisciplina</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Disciplina informada</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.DisciplinaInformada</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Informar semestre atual</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.InformarSemestreAtual</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Informar aula aos sábados</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.InformarAulaAosSabados</p>
+                    </div>
+                </div>
+                <h4 style="color:#A62F00;" class="mb"> Status Atual</h4>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Status</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.StatusAtual.StatusNome</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Responsável</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.StatusAtual.Responsável</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Data De Entrada</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.StatusAtual.DataEntrada</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Data De Saída</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.StatusAtual.DataSaida</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Observação</label>
+                    <div class="col-lg-10">
+                        <p class="form-control-static">@Model.StatusAtual.Observação</p>
+                    </div>
+                </div>
+
+                @if (!Model.StatusAtual.StatusNome.Equals("Concluido") && !Model.StatusAtual.StatusNome.Equals("Cancelado") && !Model.StatusAtual.StatusNome.Equals("Indeferido"))
+                {
+                <div class="form-group" style="padding: 15px 15px 15px 15px;">
+                    
+                    <a class="btn btn-danger pull-right btnAcoes"  data-toggle="modal" data-target="#modalIndeferir" style="margin: 10px 10px 10px 10px; ">Indeferir</a>
+                    <a class="btn btn-danger pull-right btnAcoes"  data-toggle="modal" data-target="#modalCancelar" style="margin: 10px 10px 10px 10px; ">Cancelar</a>
+                    <a class="btn btn-danger pull-right btnAcoes" data-toggle="modal" data-target="#modalConcluir"  style="margin: 10px 10px 10px 10px; ">Concluir</a>
+                    <a class="btn btn-danger pull-right btnAcoes"  data-toggle="modal" data-target="#modalTransf" style="margin: 10px 10px 10px 10px;">Transferir Responsabilidade</a>
+                </div>
+                }
+                <h4 style="color:#A62F00;" class="mb">Status Anterioes</h4>
+
+                <br />
+                <table id="tblAluno" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Responsável</th>
+                            <th>Data De Entrada</th>
+                            <th>Data De Saída</th>
+                            <th>Observação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var status in Model.HistoricoDeStatus)
+                        {
+                            <tr>
+                                <td>
+                                    @status.StatusNome
+                                </td>
+                                <td>
+                                    @status.Responsável
+                                </td>
+                                <td>
+                                    @status.DataEntrada
+                                </td>
+                                <td>
+                                    @status.DataSaida
+                                </td>
+                                <td>
+                                    @status.Observação
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div><!-- col-lg-12-->
+
+
+
+
+    <div class="modal fade" id="modalTransf" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Transferir Responsabilidade</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row mt">
+                        <div class="col-lg-12">
+                            <div class="form-panel">
+                                <form id="searchForm" class="form-horizontal style-form">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Motivo</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" id="txtTipoResponsavelTransf">
+                                                <option value="1">Aluno</option>
+                                                <option value="2">Professor</option>
+                                                <option value="3">Diretor</option>
+                                                <option value="4">Funcionário Acadêmico</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Atribuir á um responsável específico</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="chkResponsavelEspecifico" value="option1">
+                                                Marque caso queira especificar um responsável específico.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="divTxtResponsavel" style="display:none;">
+                                        <label class="col-sm-2 col-sm-2 control-label"> Responsável Específico </label>
+                                        <div class="col-sm-10">
+                                            <input type="text" id="txtResponsavelEspecificoTransf" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Adicionar uma observação </label>
+                                        <div class="col-sm-10">
+                                            <input type="text" id="txtObservacaoTransf" class="form-control">
+                                            <span class="help-block">Insira detalhes sobre o motivo.</span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div><!-- col-lg-12-->
+                    </div><!-- /row -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btnFechar" data-dismiss="modal">Cancelar</button>
+                    <button type="button" id="btnTransferirResponsabilidade" class="btn btn-danger">Transferir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalConcluir" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Concluir</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row mt">
+                    </div><!-- /row -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btnFechar" data-dismiss="modal">Cancelar</button>
+                    <button type="button" id="btnConcluir" class="btn btn-danger">Concluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalCancelar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Cancelar</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row mt">
+                        <div class="col-lg-12">
+                            <div class="form-panel">
+                                <form id="searchForm" class="form-horizontal style-form">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label"> Motivo </label>
+                                        <div class="col-sm-10">
+                                            <input type="text" id="txtMotivoCancelamento" class="form-control">
+                                            <span class="help-block">Insira detalhes sobre o motivo.</span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div><!-- col-lg-12-->
+                    </div><!-- /row -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btnFechar" data-dismiss="modal">Cancelar</button>
+                    <button type="button" id="btnCancelar" class="btn btn-danger">Cancelar Requerimento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modalIndeferir" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Indeferir</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <div class="row mt">
+                            <div class="col-lg-12">
+                                <div class="form-panel">
+                                    <form id="searchForm" class="form-horizontal style-form">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 col-sm-2 control-label"> Motivo </label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="txtMotivoIndeferir" class="form-control">
+                                                <span class="help-block">Insira detalhes sobre o motivo.</span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!-- col-lg-12-->
+                        </div><!-- /row -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btnFechar" data-dismiss="modal">Cancelar</button>
+                    <button type="button" id="btnIndeferir" class="btn btn-danger">Indeferir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /row -->
+
+
+
+<script>
+    
+</script>

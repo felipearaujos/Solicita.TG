@@ -1,0 +1,117 @@
+﻿@model  Solicita.TG.UI.View.Models.ChartParameters
+
+
+<script type="text/javascript" src="~/Scripts/Chart.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-1.8.2.min.js"></script>
+<input type="hidden" id="aluno" value="@Model.Aluno" />
+<input type="hidden" id="AgruparPorTipo" value="@Model.AgruparPorTipo.ToString()" />
+<input type="hidden" id="Disciplina" value="@Model.Disciplina" />
+<input type="hidden" id="DataInicial" value="@Model.DataInicial.ToString()" />
+<input type="hidden" id="DataFinal" value="@Model.DataFinal.ToString()" />
+@for (var i = 0; i < @Model.Status.Count; i++)
+{ 
+    <input type="hidden" class="status" value="@Model.Status[i]" />
+}
+
+<canvas id="QuantidadePorTipoChart"></canvas>
+<script>
+
+    GerarQuantidadePorTipo();
+
+    function gerar() {
+        var ctx = document.getElementById("QuantidadePorTipoChart").getContext('2d');
+        var QuantidadePorTipoChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["M", "T", "W", "T", "F", "S", "S"],
+                datasets: [{
+                    label: 'apples',
+                    data: [12, 19, 3, 17, 28, 24, 7],
+                    backgroundColor: "rgba(153,255,51,1)"
+                }, {
+                    label: 'oranges',
+                    data: [30, 29, 5, 5, 20, 3, 10],
+                    backgroundColor: "rgba(255,153,0,1)"
+                }]
+            }
+        });
+    }
+
+    function GerarQuantidadePorTipo() {
+
+        debugger;
+        var myArray = [];
+        $(".status").each(function () {
+            myArray.push($(this).val());
+        });
+        jQuery.ajaxSettings.traditional = true;
+
+        $.ajax(
+            {
+                type: 'POST',
+                async: false,
+                url: '/Dashboard/GerarQuantidadePorTipo',
+                data: { aluno: $("#aluno").val(), status: myArray, AgruparPorTipo: $("#AgruparPorTipo").val(), Disciplina: $("#Disciplina").val(), DataInicial: $("#DataInicial").val(), DataFinal: $("#DataFinal").val() },
+
+                success: function (data) {
+
+                    var labels = [];
+                    var values = [];
+
+                    for (var i = 0; i < data.length; i++) {
+                        labels.push(data[i].Tipo);
+                    }
+
+                    for (var i = 0; i < data.length; i++) {
+                        values.push(data[i].CountPorTipo);
+                    }
+
+                    var ctxPie = document.getElementById("QuantidadePorTipoChart").getContext("2d");
+                    var myPieChart = new Chart(ctxPie, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [
+                                {
+                                    data: values,
+                                    backgroundColor: [
+                                        "rgba(215, 35, 44, 0.9)",
+                                        "rgba(26, 45, 179, 0.9)",
+                                        "rgba(146, 154, 39, 0.9)",
+                                        "rgba(212, 140, 39, 0.9)",
+                                        "rgba(0, 25, 47, 0.9)",
+                                        "rgba(255, 153, 47, 0.9)"
+                                    ]
+                                }]
+                        },
+                        options: {
+                            animation: {
+                                animateScale: true,
+                                animateRotate: true,
+                                animateScale: true
+                            },
+                            legend: {
+                                display: false
+                            },
+
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true,
+                                    }
+                                }]
+                            },
+                        }
+                    });
+                },
+                error: function (data) {
+                    toastr.options.closeMethod = 'fadeOut';
+                    toastr.options.closeEasing = 'swing';
+                    toastr.options.closeButton = true;
+                    toastr.options.preventDuplicates = true;
+                    toastr.error("Erro ao gerar gráfico de volumetria mensal", "Gráfico não gerado!");
+                }
+            });
+    }
+
+</script>

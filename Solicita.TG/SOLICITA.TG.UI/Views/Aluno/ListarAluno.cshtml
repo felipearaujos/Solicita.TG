@@ -1,0 +1,62 @@
+﻿<div>
+    <div>
+        <div id="btnNovoAluno">Cadastrar Aluno</div>
+    </div>
+    <div>
+        <table id="tblAluno">
+        </table>
+    </div>
+</div>
+
+
+<script>
+
+    $("#btnNovoAluno").click(function (e) {
+        window.location.href = "/Aluno/Cadastrar";
+    });
+
+    $(document).ready(function () {
+        $.post("/Aluno/ListarAlunos", 
+        function (data, status) {
+            $("#tblAluno").html('');
+
+            novaLinha = '<thead>' +
+                            '<tr>' +
+                                '<th>Nome</th>' +
+                                '<th>Sobrenome</th>' +
+                                '<th>RG</th>' +
+                                '<th>RA</th>' +
+                                '<th>Período</th>' +
+                                '<th>Turno</th>' +
+                            '</tr>' +
+                        '</thead>' +
+                        '<tbody>';
+
+            $("#tblAluno").append(novaLinha);
+
+            for (i = 0; i < data.length; i++) {
+                novaLinha = '<tr>' +
+                                    '<td>' + data[i].Nome + '</td>' +
+                                    '<td>' + data[i].Sobrenome + '</td>' +
+                                    '<td>' + data[i].RG + '</td>' +
+                                    '<td>' + data[i].Matricula.RA + '</td>' +
+                                    '<td>' + data[i].Matricula.Periodo + '</td>' +
+                                    '<td>' + data[i].Matricula.Turno + '</td>' +
+                                    '<td><button class="btnEditar" id="' + data[i].Id + '">Editar</button></td>' +
+                            '</tr>';
+                $("#tblAluno").append(novaLinha);
+            }
+
+            $(".btnEditar").click(function (e) {
+                var id = e.target.id;
+
+                $.post("/Aluno/Editar", { Id: id},
+                function (data, status) {
+                    window.location.href = "/Aluno/Editar";
+                });
+            });
+
+            $("#tblAluno").append('</tbody>');
+        });
+    });
+</script>

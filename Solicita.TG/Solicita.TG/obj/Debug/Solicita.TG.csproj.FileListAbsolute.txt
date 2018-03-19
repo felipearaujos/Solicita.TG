@@ -1,0 +1,4 @@
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG\bin\Debug\Solicita.TG.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG\bin\Debug\Solicita.TG.pdb
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG\obj\Debug\Solicita.TG.dll
+C:\Users\Araujo\Documents\Visual Studio 2012\Projects\Solicita.TG\Solicita.TG\obj\Debug\Solicita.TG.pdb

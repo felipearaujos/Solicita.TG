@@ -1,0 +1,36 @@
+﻿<div>
+    <label>Usuário</label>
+    <input id="txtUsuario" />
+    <label>Senha</label>
+    <input id="txtSenha" />
+    <label>Tipo de Usuário</label>
+    <select id="cmbTipo">
+        <option value="1">Funcionário</option>
+        <option value="2">Diretor</option>
+        <option value="3">Professor</option>
+        <option value="4">Funcionário</option>
+    </select>
+    <button id="btnAcessar">Acessar</button>
+</div>
+
+
+
+<script>
+    
+    $("#btnAcessar").click(function (e) {
+        $.post("Acesso/RealizarLogin", {
+            Usuario: $("#txtUsuario").val(), Senha: $("#txtSenha").val(),
+            TipoDeUsuario: $("#cmbTipo").val()
+        },
+        function (data, status) {
+            if(data.AcessoLiberado)
+            {
+                window.location.href = "/Inicial";
+            }
+            else {
+                alert('sefodeu');
+            }
+        });
+    });
+
+</script>

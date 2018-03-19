@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-4 paddingTile">
+        <div class="secondBackground liveTile bigTile" id="/Requerimento">
+            <h2>Requerimentos <small>Gestão de Requerimentos</small></h2>
+            <i class="fa fa-4x fa-shopping-cart"></i>
+        </div>
+    </div>
+
+    <div class="col-md-2 paddingTile">
+        <div class="mainBackground liveTile" id="/Professor">
+            <i class="fa fa-4x fa-plus"></i>
+            <p>Professores</p>
+        </div>
+    </div>
+
+    <div class="col-md-2 paddingTile">
+        <div class="secondBackground liveTile" id="/Aluno">
+            <i class="fa fa-4x fa-users"></i>
+            @*<span>10</span>*@
+            <p>Alunos</p>
+        </div>
+    </div>
+
+    <div class="col-md-2 paddingTile">
+        <div class="mainBackground liveTile" id="/Curso">
+                <i class="fa fa-4x fa-exchange"></i>        
+                <p>Cursos</p>
+        </div>
+    </div>
+
+    <div class="col-md-2 paddingTile">
+        <div class="secondBackground liveTile" id="/Disciplina">
+                <i class="fa fa-4x fa-newspaper-o"></i>        
+                <p>Disciplinas</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2 paddingTile">
+        <div class="mainBackground liveTile" id="/Funcionario">
+            <i class="fa fa-4x fa-truck"></i>            
+            <p>Funcionários</p>
+        </div>
+    </div>
+
+    <div class="col-md-2 paddingTile">
+        <div class="secondBackground liveTile" id="/Avisos">
+            <i class="fa fa-4x fa-building-o"></i>
+            <p>Gestão de Avisos</p>
+        </div>
+    </div>
+</div>
+
+
+  
+
+@section scripts {
+    <script>
+
+        $(".liveTile").mousedown(function (event) {
+            var id = $(this).attr('id');
+            switch (event.which) {
+                case 1:
+                    //alert('Left mouse button pressed ' + id);
+                    window.location.href = id;
+
+                    break;
+                case 2:
+                    //alert('Middle mouse button pressed ' + id);
+                    window.open(id, '_blank');
+
+                    break;
+                case 3:
+                    //alert('Right mouse button pressed ' + id);
+
+                    break;
+                default:
+                    //alert('You have a strange mouse');                    
+                    break;
+            }
+        });
+
+</script>
+}
+
+<script>
+    //$(document).ready(function () {
+
+    //    window.location.href = "/Acesso";
+
+    //});
+    
+</script>

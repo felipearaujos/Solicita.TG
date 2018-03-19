@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="03a0d756-b202-4586-a6fd-3e8c8107e9a4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.cursoService/CursoService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="4f16b5b8-71d3-46ce-aa83-6ca67302b243" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.cursoService/CursoService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="de2b2747-723d-43e6-a93c-35a5687146d0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.cursoService/CursoService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="30dec290-10f5-47bd-829d-ff43a831b5fb" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.cursoService/CursoService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="921b87c5-6c38-4abe-ba03-1195b18ade1d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.cursoService/CursoService/mex" />
+    <MetadataFile FileName="Solicita.TG.Servi%C3%A7os.cursoService.Modelos.xsd" MetadataType="Schema" ID="a8040bd8-29ce-422f-9290-53a6c8c063f8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.cursoService/CursoService/mex" />
+    <MetadataFile FileName="Solicita.TG.Servi%C3%A7os.xsd" MetadataType="Schema" ID="a0913bbb-d7c2-4e23-8da9-cc47c8f13f5d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.cursoService/CursoService/mex" />
+    <MetadataFile FileName="Solicita.TG.Servi%C3%A7os.DisciplinaService.Modelos.xsd" MetadataType="Schema" ID="a4758875-adf2-47f4-9b94-914d17cded6b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.cursoService/CursoService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

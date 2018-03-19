@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RequerimentoService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Requerimentos.Modelos" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os.Aluno.Modelos" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Solicita.TG.Servi%C3%A7os" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRequerimentoService_Concluir_InputMessage">
+    <wsdl:part name="parameters" element="tns:Concluir" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_Concluir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConcluirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarMotivos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarMotivos" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarMotivos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarMotivosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_Indeferir_InputMessage">
+    <wsdl:part name="parameters" element="tns:Indeferir" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_Indeferir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IndeferirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_Cancelar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Cancelar" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_Cancelar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_TransferirResponsabilidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransferirResponsabilidade" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_TransferirResponsabilidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransferirResponsabilidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_CriarSolicitacoesDeDocumentos_InputMessage">
+    <wsdl:part name="parameters" element="tns:CriarSolicitacoesDeDocumentos" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_CriarSolicitacoesDeDocumentos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CriarSolicitacoesDeDocumentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarTipos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTipos" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarTipos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTiposResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_GetSolicitacaoDeDocumentos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSolicitacaoDeDocumentos" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_GetSolicitacaoDeDocumentos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSolicitacaoDeDocumentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_List_InputMessage">
+    <wsdl:part name="parameters" element="tns:List" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_List_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListJáAtendidas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListJáAtendidas" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListJáAtendidas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListJáAtendidasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarSolicitacoesDeDocumentos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSolicitacoesDeDocumentos" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarSolicitacoesDeDocumentos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSolicitacoesDeDocumentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarDeclaracoesDeProva_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDeclaracoesDeProva" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarDeclaracoesDeProva_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDeclaracoesDeProvaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarSolicitacoesDePasse_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSolicitacoesDePasse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarSolicitacoesDePasse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarSolicitacoesDePasseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarReaproveitamentos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarReaproveitamentos" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarReaproveitamentos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarReaproveitamentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarTrancamentosDeCurso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTrancamentosDeCurso" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarTrancamentosDeCurso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTrancamentosDeCursoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarTrancamentosDeMatricula_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTrancamentosDeMatricula" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarTrancamentosDeMatricula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTrancamentosDeMatriculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarTipoDeStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTipoDeStatus" />
+  </wsdl:message>
+  <wsdl:message name="IRequerimentoService_ListarTipoDeStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTipoDeStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRequerimentoService">
+    <wsdl:operation name="Concluir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/Concluir" message="tns:IRequerimentoService_Concluir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/ConcluirResponse" message="tns:IRequerimentoService_Concluir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarMotivos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/ListarMotivos" message="tns:IRequerimentoService_ListarMotivos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/ListarMotivosResponse" message="tns:IRequerimentoService_ListarMotivos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Indeferir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/Indeferir" message="tns:IRequerimentoService_Indeferir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/IndeferirResponse" message="tns:IRequerimentoService_Indeferir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Cancelar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/Cancelar" message="tns:IRequerimentoService_Cancelar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/CancelarResponse" message="tns:IRequerimentoService_Cancelar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferirResponsabilidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/TransferirResponsabilidade" message="tns:IRequerimentoService_TransferirResponsabilidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/TransferirResponsabilidadeResponse" message="tns:IRequerimentoService_TransferirResponsabilidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CriarSolicitacoesDeDocumentos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/CriarSolicitacoesDeDocumentos" message="tns:IRequerimentoService_CriarSolicitacoesDeDocumentos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/CriarSolicitacoesDeDocumentosResponse" message="tns:IRequerimentoService_CriarSolicitacoesDeDocumentos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/ListarTipos" message="tns:IRequerimentoService_ListarTipos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/ListarTiposResponse" message="tns:IRequerimentoService_ListarTipos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSolicitacaoDeDocumentos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/GetSolicitacaoDeDocumentos" message="tns:IRequerimentoService_GetSolicitacaoDeDocumentos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/GetSolicitacaoDeDocumentosResponse" message="tns:IRequerimentoService_GetSolicitacaoDeDocumentos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="List">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/List" message="tns:IRequerimentoService_List_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/ListResponse" message="tns:IRequerimentoService_List_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListJáAtendidas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/ListJáAtendidas" message="tns:IRequerimentoService_ListJáAtendidas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/ListJáAtendidasResponse" message="tns:IRequerimentoService_ListJáAtendidas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarSolicitacoesDeDocumentos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/ListarSolicitacoesDeDocumentos" message="tns:IRequerimentoService_ListarSolicitacoesDeDocumentos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/ListarSolicitacoesDeDocumentosResponse" message="tns:IRequerimentoService_ListarSolicitacoesDeDocumentos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDeclaracoesDeProva">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/ListarDeclaracoesDeProva" message="tns:IRequerimentoService_ListarDeclaracoesDeProva_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/ListarDeclaracoesDeProvaResponse" message="tns:IRequerimentoService_ListarDeclaracoesDeProva_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarSolicitacoesDePasse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/ListarSolicitacoesDePasse" message="tns:IRequerimentoService_ListarSolicitacoesDePasse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/ListarSolicitacoesDePasseResponse" message="tns:IRequerimentoService_ListarSolicitacoesDePasse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarReaproveitamentos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/ListarReaproveitamentos" message="tns:IRequerimentoService_ListarReaproveitamentos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/ListarReaproveitamentosResponse" message="tns:IRequerimentoService_ListarReaproveitamentos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTrancamentosDeCurso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/ListarTrancamentosDeCurso" message="tns:IRequerimentoService_ListarTrancamentosDeCurso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/ListarTrancamentosDeCursoResponse" message="tns:IRequerimentoService_ListarTrancamentosDeCurso_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTrancamentosDeMatricula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/ListarTrancamentosDeMatricula" message="tns:IRequerimentoService_ListarTrancamentosDeMatricula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/ListarTrancamentosDeMatriculaResponse" message="tns:IRequerimentoService_ListarTrancamentosDeMatricula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipoDeStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRequerimentoService/ListarTipoDeStatus" message="tns:IRequerimentoService_ListarTipoDeStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRequerimentoService/ListarTipoDeStatusResponse" message="tns:IRequerimentoService_ListarTipoDeStatus_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRequerimentoService" type="tns:IRequerimentoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Concluir">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/Concluir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMotivos">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/ListarMotivos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Indeferir">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/Indeferir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cancelar">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/Cancelar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferirResponsabilidade">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/TransferirResponsabilidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CriarSolicitacoesDeDocumentos">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/CriarSolicitacoesDeDocumentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipos">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/ListarTipos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSolicitacaoDeDocumentos">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/GetSolicitacaoDeDocumentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="List">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListJáAtendidas">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/ListJáAtendidas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarSolicitacoesDeDocumentos">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/ListarSolicitacoesDeDocumentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDeclaracoesDeProva">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/ListarDeclaracoesDeProva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarSolicitacoesDePasse">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/ListarSolicitacoesDePasse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarReaproveitamentos">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/ListarReaproveitamentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTrancamentosDeCurso">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/ListarTrancamentosDeCurso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTrancamentosDeMatricula">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/ListarTrancamentosDeMatricula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipoDeStatus">
+      <soap:operation soapAction="http://tempuri.org/IRequerimentoService/ListarTipoDeStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RequerimentoService">
+    <wsdl:port name="BasicHttpBinding_IRequerimentoService" binding="tns:BasicHttpBinding_IRequerimentoService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/Solicita.TG.Servi%C3%A7os.Requerimentos/RequerimentoService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

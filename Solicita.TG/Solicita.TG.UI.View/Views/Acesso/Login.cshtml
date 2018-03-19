@@ -1,0 +1,107 @@
+﻿@{ 
+    Layout = null; 
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>LOGIN - SOLICITA</title>
+
+    
+    <link href="~/Content/DashGum/bootstrap.css" rel="stylesheet">    
+    <link href="~/Content/toastr.css" rel="stylesheet">
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/DashGum/style.css" rel="stylesheet">
+    <link href="~/Content/DashGum/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div id="login-page">
+        <div class="container">
+            <form class="form-login">
+                <h2 class="form-login-heading">ÁREA ACADÊMICA</h2>
+                <div class="login-wrap">
+                    <input type="text" class="form-control" id="txtUsuario" placeholder="ID" autofocus>
+                    <br>
+                    <input type="password" class="form-control" id="txtSenha" placeholder="SENHA">
+                    <label class="checkbox">
+                        <span class="pull-right">
+                            <a data-toggle="modal" href="/Acesso/RecuperacaoDeSenha">Esqueceu a Senha?</a>
+                        </span>
+                    </label>
+                    <button class="btn btn-theme btn-block" id="btnAcessar" type="button"><i class="fa fa-unlock"></i> ACESSAR</button>
+                    <hr>
+                    <div class="login-social-link centered">
+                        <button class="btn btn-theme btn-block" id="btnAcessarComoAluno" type="button"> <i class="fa fa-graduation-cap"></i> ACESSAR COMO ALUNO</button>
+                    </div>
+                </div>
+            </form>
+            <div class="alert alert-success" id="acessOk" style="display: none;"></div>
+            <div class="alert alert-danger" id="acessError" style="display: none;"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="~/Content/DashGum/js/jquery.js"></script>
+<script src="~/Content/DashGum/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Content/DashGum/js/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="~/Scripts/toastr.js"></script>
+<script>
+
+    $("#btnAcessar").click(function (e) {
+        Acessar();
+    });
+
+    function Acessar() {
+        $.ajax({
+            type: "POST",
+            url: 'Acesso/RealizarLogin',
+            data: { Usuario: $("#txtUsuario").val(), Senha: $("#txtSenha").val(), TipoDeUsuario: 0 },
+            success: function (data) {
+                if (data.AcessoLiberado) {
+                    //
+                    toastr.options.closeMethod = 'fadeOut';
+                    toastr.options.closeDuration = 300;
+                    toastr.options.closeEasing = 'swing';
+                    toastr.options.progressBar = true; toastr.options.onHidden = function () { window.location.href = "/Home"; }
+                    toastr.success(data.Response, 'Bem Vindo ' + data.NomeDoUsuario);
+                }
+                else {
+                    toastr.options.closeMethod = 'fadeOut';
+                    toastr.options.closeDuration = 300;
+                    toastr.options.closeEasing = 'swing';
+                    toastr.options.progressBar = true;
+                    toastr.error(data.Response, 'Acesso Negado!');
+                }
+            },
+            error: function (xhr, status, error) {
+                var msg = JSON.parse(xhr.responseText);
+                alert(msg);
+            }
+        });
+    }
+
+    $("#btnAcessarComoAluno").click(function (e) {
+        window.location.href = "/Acesso/AcessarComoAluno";
+    });
+
+    $("#btnAcessarComoAluno").click(function (e) {
+        window.location.href = "/Acesso/AcessarComoAluno";
+    });
+
+
+</script>

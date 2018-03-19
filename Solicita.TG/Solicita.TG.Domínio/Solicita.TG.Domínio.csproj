@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E94E5EAA-891E-43ED-88DD-889DA33F629F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Solicita.TG.Domínio</RootNamespace>
+    <AssemblyName>Solicita.TG.Domínio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntidadeAplicacao\QuantidadePorTipo.cs" />
+    <Compile Include="Entidades\Acesso\Acesso.cs" />
+    <Compile Include="Entidades\Acesso\IAcesso.cs" />
+    <Compile Include="Entidades\Acesso\TipoDeAcesso.cs" />
+    <Compile Include="Entidades\Aluno\Aluno.cs" />
+    <Compile Include="Entidades\Aluno\IAluno.cs" />
+    <Compile Include="Entidades\Curso\Curso.cs" />
+    <Compile Include="Entidades\Curso\ICurso.cs" />
+    <Compile Include="Entidades\Disciplina\Disciplina.cs" />
+    <Compile Include="Entidades\Disciplina\IDisciplina.cs" />
+    <Compile Include="Entidades\Entidade\IEntidadeDominio.cs" />
+    <Compile Include="Entidades\FuncionarioAcademico\FuncionarioAcademico.cs" />
+    <Compile Include="Entidades\FuncionarioAcademico\IFuncionarioAcademico.cs" />
+    <Compile Include="Entidades\Matricula\IMatrícula.cs" />
+    <Compile Include="Entidades\Matricula\Matrícula.cs" />
+    <Compile Include="Entidades\Matricula\Período.cs" />
+    <Compile Include="Entidades\Matricula\Turno.cs" />
+    <Compile Include="Entidades\Motivo\Motivo.cs" />
+    <Compile Include="Entidades\Pessoa\IPessoa.cs" />
+    <Compile Include="Entidades\Professor\IProfessor.cs" />
+    <Compile Include="Entidades\Professor\Professor.cs" />
+    <Compile Include="Entidades\Requerimento\AbstractRequerimento.cs" />
+    <Compile Include="Entidades\Requerimento\IRequerimento.cs" />
+    <Compile Include="Entidades\Requerimento\IResponsável.cs" />
+    <Compile Include="Entidades\Requerimento\StatusRequerimento\Status.cs" />
+    <Compile Include="Entidades\Requerimento\StatusRequerimento\IStatus.cs" />
+    <Compile Include="Entidades\Requerimento\SolicitaçãoDeDocumentos.cs" />
+    <Compile Include="Entidades\Requerimento\StatusRequerimento\TipoDeResponsável.cs" />
+    <Compile Include="Entidades\Requerimento\StatusRequerimento\TipoDeStatus.cs" />
+    <Compile Include="Entidades\Requerimento\TiposRequerimento\TipoRequerimento.cs" />
+    <Compile Include="Entidades\Requerimento\TiposRequerimento\TiposDeDocumentos.cs" />
+    <Compile Include="Entidades\Requerimento\TiposRequerimento\TiposDeMotivos.cs" />
+    <Compile Include="Factories\Requerimentos\RequerimentoFactory.cs" />
+    <Compile Include="Factories\Status\StatusFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Solicita.TG.Compartilhado\Solicita.TG.Compartilhado.csproj">
+      <Project>{f8154f15-f932-4f0a-a1b4-98ff2f23b691}</Project>
+      <Name>Solicita.TG.Compartilhado</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Solicita.TG.Utils\Solicita.TG.Utils.csproj">
+      <Project>{5a2d3c3b-0bf3-4187-ae2e-8c969b10bbfb}</Project>
+      <Name>Solicita.TG.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

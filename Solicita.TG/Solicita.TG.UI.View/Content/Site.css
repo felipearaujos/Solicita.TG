@@ -1,0 +1,509 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.btnAddArray {
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top:3px;
+    padding-bottom:3px;
+    text-align:center;
+    background-color:#730E22;
+    color:white;
+    font-size:13px;
+    margin-top:20px;
+    margin-bottom:20px;
+    font-family:'Century Gothic';
+    cursor:pointer;
+}
+
+.blackPanel {
+    font-family:'Century Gothic';
+    background-color: #414654;
+    height:900px;
+}
+
+.blackPanelFit {
+    font-family:'Century Gothic';
+    background-color: #414654;
+    height:900px;
+}
+
+.btnEdit {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align:center;
+    background-color:#730E22;
+    color:white;
+    font-size:20px;
+    margin-top:30px;
+    font-family:'Century Gothic';
+    cursor:pointer;
+}
+
+
+.bodyLogin{
+	background-color:#730E22;
+}
+
+.btnAdd {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align:center;
+    background-color:#730E22;
+    color:white;
+    font-size:15px;
+    margin-top:30px;
+    font-family:'Century Gothic';
+    cursor:pointer;
+}
+
+.divEdit {
+    margin-left:20px;
+    margin-right:20px;
+}
+p{
+    color:white;
+}
+
+.ajusteTituloMain{
+    padding-top:15px;
+}
+
+.tableLateralListar{
+    height:500px;
+}
+
+
+.tableEdit{
+    width:100%;
+}
+
+table {
+    width:100%;
+}
+
+th{
+    padding: 0px 10px 2px 10px;
+    background-color:#730E22;
+    color:white;
+    font-family:'Century Gothic';
+}
+
+.btnEditList{
+    color:#730E22;
+}
+
+.editInputList{
+    color:#730E22;
+    font-family:'Century Gothic';
+    border-color:#730E22;
+}
+
+.editInputView{
+    color:#730E22;
+    font-family:'Century Gothic';
+    border-color:#730E22;
+    padding-right:7px;
+    padding-top:15px;
+}
+
+.editInput{
+    color:#730E22;
+    font-family:'Century Gothic';
+    width:100%;
+    margin-bottom:20px;
+}
+
+.loginItems {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    z-index: 15;
+    top: 40%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+}
+
+.inputLogin {
+    width:100%;
+    font-size:20px;
+    font-family:'Century Gothic';
+    margin-bottom:20px;
+}
+
+.lblReq{
+    color:#730E22;
+    font-family:'Century Gothic';
+    font-size:12px;
+}
+
+.lblReqMed{
+    color:black;
+    font-family:'Century Gothic';
+    font-size:15px;
+}
+.ui-widget.success-dialog {
+    font-family:'Century Gothic';
+    font-size: 16px;
+}
+
+.ui-widget-content.success-dialog {
+    background: white;
+    border: 1px solid #730E22;
+    color: #730E22;
+}
+
+.ui-dialog.success-dialog {
+    left: 0;
+    outline: 0 none;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+}
+
+.ui-dialog.success-dialog .ui-dialog-content {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    overflow: auto;
+    position: relative;
+    padding: 0 !important;
+    margin: 0;
+}
+
+.ui-dialog.success-dialog .ui-widget-header {
+    background: #730E22;
+    border: 0;
+    color: #fff;
+    font-weight: normal;
+}
+
+.ui-dialog.success-dialog .ui-dialog-titlebar {
+    padding: 0.1em .5em;
+    position: relative;
+    font-size: 1em;
+}
+
+.padding0 {
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.lblReqBig{
+    color:#730E22;
+    font-family:'Century Gothic';
+    font-size:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.btnCreateReq {
+    margin-left:5px;
+    background-color: #730E22;
+    padding-top:20px;
+    padding-bottom:20px;
+    font-family:'Century Gothic';
+    margin-top: 10px;
+    color:white;
+    margin-bottom: 10px;
+    text-align:center;
+}
+
+
+.btnCreateReq body{
+    color:white;
+}
+
+.btnCreateReq label{
+    color:white;
+    font-size:14px;
+    padding-left:30px;
+    font-weight:normal;
+}
+
+.textArea {
+    height:80px;
+    width:100%;
+}
+
+.titleList{
+    font-family:'Century Gothic';
+    color:white;
+    color:#730E22;
+    font-size:40px;
+    padding-bottom:40px;
+}
+
+.titleNewList{
+    font-family:'Century Gothic';
+    color:#730E22;
+    font-size:30px;
+    padding-right:20px;
+}
+
+.btnRed{
+    background-color:#730E22;
+    color:white;
+    border:none;
+    width:100%;
+    font-family:'Century Gothic';
+}
+
+.btnHeightSessenta{
+    background-color:#730E22;
+    color:white;
+    border:none;
+    height:40px;
+    font-family:'Century Gothic';
+}
+
+tr:nth-child(even) {
+    background-color: #F0E6DE;
+}
+
+td{
+    padding: 0px 10px 2px 10px;
+    color:black;
+    font-family:'Century Gothic';
+}
+
+
+h2{
+    color:white;
+}
+
+.teste{
+    background-color:yellow;
+}
+
+.contentCard{
+    padding-top:50px;
+}
+
+.card{
+    padding:5px 5px 5px 5px;
+}
+
+.menuSuperiorColor{
+    background-color:#730E22;
+    cursor:pointer;
+}
+
+body {
+    font-family:'Century Gothic';
+}
+
+p{
+    font-family:'Century Gothic';
+}
+
+h1{
+    font-family:'Century Gothic';
+}
+
+
+h2{
+    font-family:'Century Gothic';
+}
+
+.fontMiniCard{
+    font-size:27px;
+}
+
+.imgMiniCard{
+    padding-top:15px;
+    font-size:65px;
+}
+
+.tamanhoCard{
+    height:200px;
+}
+
+.miniCard{
+    padding:5px 5px 5px 5px;
+}
+
+body {
+    font-family:Corbel;
+}
+
+.ehnois{
+    padding: 12px 12px 12px 12px;
+    background-color:#730E22;
+}
+
+.ehnois:hover{
+    padding: 12px 12px 12px 12px;
+    background-color:#333;
+}
+
+.menuInferiorColor{
+    background-color:#333;
+}
+
+.menuInferiorOpen {
+    width:300px;
+}
+
+.menuInferiorColor:hover{
+    background-color:#222;
+}
+
+
+
+/*
+    body.slide-active {
+    overflow-x: hidden
+}
+/*first child of #page-content so it doesn't shift around*/
+.no-margin-top {
+    margin-top: 0px!important
+}
+/*wrap the entire page content but not nav inside this div if not a fixed top, don't add any top padding */
+#page-content {
+    position: relative;
+    padding-top: 70px;
+    left: 0;
+}
+#page-content.slide-active {
+    padding-top: 0
+}
+
+
+
+/* put toggle bars on the left :: not using button */
+#slide-nav .navbar-toggle {
+    cursor: pointer;
+    position: relative;
+    line-height: 0;
+    float: left;
+    margin: 0;
+    width: 30px;
+    height: 40px;
+    padding: 10px 0 0 0;
+    border: 0;
+    background: transparent;
+}
+/* icon bar prettyup - optional */
+#slide-nav .navbar-toggle > .icon-bar {
+    width: 100%;
+    display: block;
+    height: 3px;
+    margin: 5px 0 0 0;
+}
+#slide-nav .navbar-toggle.slide-active .icon-bar {
+    background: orange
+}
+.navbar-header {
+    position: relative
+}
+/* un fix the navbar when active so that all the menu items are accessible */
+.navbar.navbar-fixed-top.slide-active {
+    position: relative
+}
+/* screw writing importants and shit, just stick it in max width since these classes are not shared between sizes */
+@media (max-width:767px) { 
+	#slide-nav .container {
+	    margin: 0!important;
+	    padding: 0!important;
+      height:100%;
+	}
+	#slide-nav .navbar-header {
+	    margin: 0 auto;
+	    padding: 0 15px;
+	}
+	#slide-nav .navbar.slide-active {
+	    position: absolute;
+	    width: 80%;
+	    top: -1px;
+	    z-index: 1000;
+	}
+	#slide-nav #slidemenu {
+	    background: #f7f7f7;
+	    left: -100%;
+	    width: 80%;
+	    min-width: 0;
+	    position: absolute;
+	    padding-left: 0;
+	    z-index: 2;
+	    top: -8px;
+	    margin: 0;
+	}
+	#slide-nav #slidemenu .navbar-nav {
+	    min-width: 0;
+	    width: 100%;
+	    margin: 0;
+	}
+	#slide-nav #slidemenu .navbar-nav .dropdown-menu li a {
+	    min-width: 0;
+	    width: 80%;
+	    white-space: normal;
+	}
+	#slide-nav {
+	    border-top: 0
+	}
+	#slide-nav.navbar-inverse #slidemenu {
+	    background: #333
+	}
+	/* this is behind the navigation but the navigation is not inside it so that the navigation is accessible and scrolls*/
+	#navbar-height-col {
+	    position: fixed;
+	    top: 0;
+	    height: 100%;
+      bottom:0;
+	    width: 80%;
+	    left: -80%;
+	    background: #f7f7f7;
+	}
+	#navbar-height-col.inverse {
+	    background: #333;
+	    z-index: 1;
+	    border: 0;
+	}
+	#slide-nav .navbar-form {
+	    width: 100%;
+	    margin: 8px 0;
+	    text-align: center;
+	    overflow: hidden;
+	    /*fast clearfixer*/
+	}
+	#slide-nav .navbar-form .form-control {
+	    text-align: center
+	}
+	#slide-nav .navbar-form .btn {
+	    width: 100%
+	}
+}
+@media (min-width:768px) { 
+	#page-content {
+	    left: 0!important
+	}
+	.navbar.navbar-fixed-top.slide-active {
+	    position: fixed
+	}
+	.navbar-header {
+	    left: 0!important
+	}
+}
+
+
+
+*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}

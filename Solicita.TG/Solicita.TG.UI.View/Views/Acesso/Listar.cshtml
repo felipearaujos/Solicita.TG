@@ -1,0 +1,62 @@
+﻿<div class="row">
+    <div class="col-md-12 mt">
+        <div class="content-panel">
+            <form class="form-inline padding15" role="form">
+                <button type="button" class="btn btn-danger">FILTRAR</button>
+                <button type="button" class="btn btn-danger pull-right" id="btnNovoAcesso">CADASTRAR NOVO ACESSO</button>
+            </form>
+            <br />
+            <table id="tblAcesso" class="table table-hover">
+                <h4><i class="fa fa-angle-right"></i> ACESSOS CADASTRADOS </h4>
+                <hr>
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Tipo de Usuário</th>
+                        <th>Editar</th>                       
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Content/DashGum/js/jquery.js"></script>
+<script>
+
+    $("#btnNovoAcesso").click(function (e) {
+        window.location.href = "/Acesso/Criar";
+    });
+
+
+    $(document).ready(function () {
+        $.post("/Acesso/ListarAcessos",
+        function (data, status) {
+           
+
+            for (i = 0; i < data.length; i++) {
+                novaLinha = '<tr>' +
+                                    '<td>' + data[i].Usuario + '</td>' +
+                                    '<td>' + data[i].TipoDeUsuario.NomeDoTipo + '</td>' +
+                                    '<td>'
+                                        + '<div>'
+                                            + '<i class="fa fa-pencil-square btnEditar" id="' + data[i].Id + '" aria-hidden="true"></i>'
+                                        + '</div>'
+                                    + '</td>'
+
+                '</tr>';
+                $("#tblAcesso tbody").append(novaLinha);
+            }
+
+            $(".btnEditar").click(function (e) {
+                              
+                e.preventDefault();
+                var p = e.target.getAttribute("id");
+                var url = "/Acesso/Editar/" + p;
+                window.location.href = url;
+            });
+
+            $("#tblAcesso").append('</tbody>');
+        });
+    });
+</script>

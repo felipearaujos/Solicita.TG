@@ -1,0 +1,138 @@
+﻿@model List<Solicita.TG.UI.View.RequerimentoService.RequerimentoSimplesModel>
+
+<link href="~/Content/DashGum/style.css" rel="stylesheet">
+<link href="~/Content/DashGum/style-responsive.css" rel="stylesheet">
+<link href="~/Content/toastr.css" rel="stylesheet">
+
+<h3><i class="fa fa-angle-right"></i> SOLICITAÇÕES JÁ ATENDIDAS </h3>
+<div class="row">
+    <div class="col-md-12 mt">
+        <div class="content-panel">
+            <form class="form-inline padding15">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="ALUNO">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="STATUS">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="DATA DE ABERTURA">
+                </div>
+                <button type="button" class="btn btn-danger">FILTRAR</button>
+            </form>
+            <br />
+            <table id="tblAluno" class="table table-hover">
+                <h4><i class="fa fa-angle-right"></i> SOLICITAÇÕES JÁ ATENDIDAS  </h4>
+                <hr>
+                <thead>
+                    <tr>
+                        <th>ALUNO</th>
+                        <th>DATA DE ABERTURA</th>
+                        <th>DATA DE TÉRMINO</th>
+                        <th>STATUS</th>
+                        <th>RESPONSÁVEL</th>
+                        <th>EDITAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var umReq in Model)
+                    {
+                        <tr>
+                            <td>
+                                @umReq.Aluno
+                            </td>
+                            <td>
+                                @umReq.DataAbertura
+                            </td>
+                            <td>
+                                @umReq.DataTermino
+                            </td>
+                            <td>
+                                @umReq.Status
+                            </td>
+                            <td>
+                                @umReq.Responsavel
+                            </td>
+                            <td>
+                                <div>
+                                    <i class="fa fa-pencil-square btnEditar" id="@umReq.Id" aria-hidden="true"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Content/DashGum/js/jquery.js"></script>
+<script type="text/javascript" src="~/Scripts/Generic/genericScripts.js"></script>
+<script type="text/javascript" src="~/Content/DashGum/js/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="~/Scripts/toastr.js"></script>
+
+<script>
+
+        $(".btnEditar").click(function (e) {
+            debugger;
+            $.ajax(
+                {
+                    type: 'POST',
+                    url: '/Requerimento/EditSolicitacaoDeDocumentosAluno',
+                    data: { id: e.target.getAttribute("id") },
+                    success: function (data) {
+                        debugger;
+                        $('#btnFechar').click();
+                        $('#contentPage').html(data);
+                    },
+                    error: function (data) {
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeEasing = 'swing';
+                        toastr.options.closeButton = true;
+                        toastr.options.preventDuplicates = true;
+                        toastr.error("Erro ao criar requerimento", "Requerimento não criado!");
+                    }
+                });
+        });
+
+        $("#btnSalvar").click(function () {
+            debugger;
+
+            var disciplinaInformada = $("#txtDisciplinaInformada").val();
+
+            if ($("#txtDisciplinaInformada").val() == undefined || $("#txtDisciplinaInformada").val() == '' || $("#txtDisciplinaInformada").val() == null)
+                disciplinaInformada = '00000000-0000-0000-0000-000000000000';
+
+            var request = {
+                IdAluno: $("#IdAlunoHidden").text(), TipoDoMotivo: $("#txtTipoMotivo").val(), TipoDeDocumento: $("#txtTipoDeDocumento").val(), EspecificacaoDoMotivo: $("#txtMotivoEspecificado").val(),
+                InformarSemestreAtual: $("#chkInformarSemestreAtual").is(':checked'), InformarCargaHoraria: $("#chkInformarCargaHoraria").is(':checked'),
+                InformarAulaAosSabados: $("#chkInformarAulaAosSabados").is(':checked'), InformarPrevisaoDeConclusao: $("#chkInformarPrevisaoDeConclusao").is(':checked'),
+                InformarDisciplina: $("#chkInformarDisciplina").is(':checked'), InformarPeriodo: $("#chkInformarPeriodo").is(':checked'), DisciplinaInformada: disciplinaInformada
+            };
+
+            $.ajax(
+                {
+                    type: 'POST',
+                    url: '/Requerimento/CriarSolicitacaoDeDocumentos',
+                    data: request,
+                    success: function (data) {
+                        debugger;
+                        $('#btnFechar').click();
+                        $('#contentPage').html(data);
+                    },
+                    error: function (data) {
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeEasing = 'swing';
+                        toastr.options.closeButton = true;
+                        toastr.options.preventDuplicates = true;
+                        toastr.error("Erro ao criar requerimento", "Requerimento não criado!");
+                    }
+            });
+        });
+
+        $("#searchForm").submit(function () {
+            return false;
+        });
+
+
+</script>
+
